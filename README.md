@@ -49,3 +49,16 @@ chunk_id 처리 원칙 : 공개본 데이터에 존재하는 기존 chunk_id만 
 ```text
 sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
 ```
+
+## Day 12-A: 질문 유형별 Section Boost 고도화
+
+### 목표
+
+사용자 질문 의도에 따라 중요한 의결서 section이 검색 결과 상위에 오도록 질문 분류기와 section boost 로직을 고도화한다.
+
+### 수정 파일
+
+```text
+src/retrieval/query_classifier.py
+src/retrieval/section_boost.py
+src/retrieval/test_day12_a_boost.py
