@@ -1,0 +1,520 @@
+{
+  "total_queries": 6,
+  "success_count": 6,
+  "fail_count": 0,
+  "all_success": true,
+  "results": [
+    {
+      "query": "이 사건 과징금은 얼마야?",
+      "status": "success",
+      "query_type": "penalty",
+      "matched_keywords": [
+        "과징금",
+        "얼마"
+      ],
+      "top5_chunk_ids": [
+        "case_001_chunk_004",
+        "case_001_chunk_002",
+        "case_001_chunk_006",
+        "case_001_chunk_001",
+        "case_001_chunk_003"
+      ],
+      "elapsed_seconds": 0.0088,
+      "within_30_seconds": true,
+      "top5_results": [
+        {
+          "rank": 1,
+          "chunk_id": "case_001_chunk_004",
+          "section_type": "law_article",
+          "score": 0.26154895250954024,
+          "section_boost": 1.0,
+          "boosted_score": 0.26154895250954024,
+          "text": "이 사건에는 공정거래법 제23조 제1항이 적용된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 2,
+          "chunk_id": "case_001_chunk_002",
+          "section_type": "legal_reasoning",
+          "score": 0.2289200732855778,
+          "section_boost": 1.1,
+          "boosted_score": 0.2518120806141356,
+          "text": "이 행위는 거래상 지위를 이용한 불이익 제공행위로 판단된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 3,
+          "chunk_id": "case_001_chunk_006",
+          "section_type": "summary",
+          "score": 0.24414918058968704,
+          "section_boost": 1.0,
+          "boosted_score": 0.24414918058968704,
+          "text": "이 사건은 거래상 지위 남용행위에 관한 건이다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 4,
+          "chunk_id": "case_001_chunk_001",
+          "section_type": "fact",
+          "score": 0.0,
+          "section_boost": 0.95,
+          "boosted_score": 0.0,
+          "text": "피심인은 거래상대방에게 특정 조건을 요구하였다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 5,
+          "chunk_id": "case_001_chunk_003",
+          "section_type": "penalty",
+          "score": 0.0,
+          "section_boost": 1.5,
+          "boosted_score": 0.0,
+          "text": "피심인에게 과징금 1억 원을 부과한다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        }
+      ]
+    },
+    {
+      "query": "왜 위법하다고 판단했어?",
+      "status": "success",
+      "query_type": "legal_reasoning",
+      "matched_keywords": [
+        "왜",
+        "판단",
+        "위법"
+      ],
+      "top5_chunk_ids": [
+        "case_001_chunk_001",
+        "case_001_chunk_002",
+        "case_001_chunk_003",
+        "case_001_chunk_004",
+        "case_001_chunk_005"
+      ],
+      "elapsed_seconds": 0.0094,
+      "within_30_seconds": true,
+      "top5_results": [
+        {
+          "rank": 1,
+          "chunk_id": "case_001_chunk_001",
+          "section_type": "fact",
+          "score": 0.0,
+          "section_boost": 1.15,
+          "boosted_score": 0.0,
+          "text": "피심인은 거래상대방에게 특정 조건을 요구하였다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 2,
+          "chunk_id": "case_001_chunk_002",
+          "section_type": "legal_reasoning",
+          "score": 0.0,
+          "section_boost": 1.5,
+          "boosted_score": 0.0,
+          "text": "이 행위는 거래상 지위를 이용한 불이익 제공행위로 판단된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 3,
+          "chunk_id": "case_001_chunk_003",
+          "section_type": "penalty",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인에게 과징금 1억 원을 부과한다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 4,
+          "chunk_id": "case_001_chunk_004",
+          "section_type": "law_article",
+          "score": 0.0,
+          "section_boost": 1.25,
+          "boosted_score": 0.0,
+          "text": "이 사건에는 공정거래법 제23조 제1항이 적용된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 5,
+          "chunk_id": "case_001_chunk_005",
+          "section_type": "order",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인은 향후 동일한 행위를 반복하여서는 아니 된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        }
+      ]
+    },
+    {
+      "query": "어떤 행위가 문제였어?",
+      "status": "success",
+      "query_type": "fact_pattern",
+      "matched_keywords": [
+        "행위",
+        "어떤 행위"
+      ],
+      "top5_chunk_ids": [
+        "case_001_chunk_001",
+        "case_001_chunk_002",
+        "case_001_chunk_003",
+        "case_001_chunk_004",
+        "case_001_chunk_005"
+      ],
+      "elapsed_seconds": 0.0074,
+      "within_30_seconds": true,
+      "top5_results": [
+        {
+          "rank": 1,
+          "chunk_id": "case_001_chunk_001",
+          "section_type": "fact",
+          "score": 0.0,
+          "section_boost": 1.5,
+          "boosted_score": 0.0,
+          "text": "피심인은 거래상대방에게 특정 조건을 요구하였다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 2,
+          "chunk_id": "case_001_chunk_002",
+          "section_type": "legal_reasoning",
+          "score": 0.0,
+          "section_boost": 1.1,
+          "boosted_score": 0.0,
+          "text": "이 행위는 거래상 지위를 이용한 불이익 제공행위로 판단된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 3,
+          "chunk_id": "case_001_chunk_003",
+          "section_type": "penalty",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인에게 과징금 1억 원을 부과한다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 4,
+          "chunk_id": "case_001_chunk_004",
+          "section_type": "law_article",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "이 사건에는 공정거래법 제23조 제1항이 적용된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 5,
+          "chunk_id": "case_001_chunk_005",
+          "section_type": "order",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인은 향후 동일한 행위를 반복하여서는 아니 된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        }
+      ]
+    },
+    {
+      "query": "적용 법조항 알려줘",
+      "status": "success",
+      "query_type": "law_article",
+      "matched_keywords": [
+        "법조항",
+        "조항",
+        "적용 법"
+      ],
+      "top5_chunk_ids": [
+        "case_001_chunk_001",
+        "case_001_chunk_002",
+        "case_001_chunk_003",
+        "case_001_chunk_004",
+        "case_001_chunk_005"
+      ],
+      "elapsed_seconds": 0.0091,
+      "within_30_seconds": true,
+      "top5_results": [
+        {
+          "rank": 1,
+          "chunk_id": "case_001_chunk_001",
+          "section_type": "fact",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인은 거래상대방에게 특정 조건을 요구하였다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 2,
+          "chunk_id": "case_001_chunk_002",
+          "section_type": "legal_reasoning",
+          "score": 0.0,
+          "section_boost": 1.3,
+          "boosted_score": 0.0,
+          "text": "이 행위는 거래상 지위를 이용한 불이익 제공행위로 판단된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 3,
+          "chunk_id": "case_001_chunk_003",
+          "section_type": "penalty",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인에게 과징금 1억 원을 부과한다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 4,
+          "chunk_id": "case_001_chunk_004",
+          "section_type": "law_article",
+          "score": 0.0,
+          "section_boost": 1.5,
+          "boosted_score": 0.0,
+          "text": "이 사건에는 공정거래법 제23조 제1항이 적용된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 5,
+          "chunk_id": "case_001_chunk_005",
+          "section_type": "order",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인은 향후 동일한 행위를 반복하여서는 아니 된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        }
+      ]
+    },
+    {
+      "query": "최종 시정명령이 뭐야?",
+      "status": "success",
+      "query_type": "corrective_order",
+      "matched_keywords": [
+        "시정명령",
+        "명령"
+      ],
+      "top5_chunk_ids": [
+        "case_001_chunk_001",
+        "case_001_chunk_002",
+        "case_001_chunk_003",
+        "case_001_chunk_004",
+        "case_001_chunk_005"
+      ],
+      "elapsed_seconds": 0.0125,
+      "within_30_seconds": true,
+      "top5_results": [
+        {
+          "rank": 1,
+          "chunk_id": "case_001_chunk_001",
+          "section_type": "fact",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인은 거래상대방에게 특정 조건을 요구하였다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 2,
+          "chunk_id": "case_001_chunk_002",
+          "section_type": "legal_reasoning",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "이 행위는 거래상 지위를 이용한 불이익 제공행위로 판단된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 3,
+          "chunk_id": "case_001_chunk_003",
+          "section_type": "penalty",
+          "score": 0.0,
+          "section_boost": 1.15,
+          "boosted_score": 0.0,
+          "text": "피심인에게 과징금 1억 원을 부과한다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 4,
+          "chunk_id": "case_001_chunk_004",
+          "section_type": "law_article",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "이 사건에는 공정거래법 제23조 제1항이 적용된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 5,
+          "chunk_id": "case_001_chunk_005",
+          "section_type": "order",
+          "score": 0.0,
+          "section_boost": 1.5,
+          "boosted_score": 0.0,
+          "text": "피심인은 향후 동일한 행위를 반복하여서는 아니 된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        }
+      ]
+    },
+    {
+      "query": "전체 내용 요약해줘",
+      "status": "success",
+      "query_type": "summary",
+      "matched_keywords": [
+        "요약",
+        "전체 내용"
+      ],
+      "top5_chunk_ids": [
+        "case_001_chunk_001",
+        "case_001_chunk_002",
+        "case_001_chunk_003",
+        "case_001_chunk_004",
+        "case_001_chunk_005"
+      ],
+      "elapsed_seconds": 0.0096,
+      "within_30_seconds": true,
+      "top5_results": [
+        {
+          "rank": 1,
+          "chunk_id": "case_001_chunk_001",
+          "section_type": "fact",
+          "score": 0.0,
+          "section_boost": 1.25,
+          "boosted_score": 0.0,
+          "text": "피심인은 거래상대방에게 특정 조건을 요구하였다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 2,
+          "chunk_id": "case_001_chunk_002",
+          "section_type": "legal_reasoning",
+          "score": 0.0,
+          "section_boost": 1.15,
+          "boosted_score": 0.0,
+          "text": "이 행위는 거래상 지위를 이용한 불이익 제공행위로 판단된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 3,
+          "chunk_id": "case_001_chunk_003",
+          "section_type": "penalty",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인에게 과징금 1억 원을 부과한다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 4,
+          "chunk_id": "case_001_chunk_004",
+          "section_type": "law_article",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "이 사건에는 공정거래법 제23조 제1항이 적용된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        },
+        {
+          "rank": 5,
+          "chunk_id": "case_001_chunk_005",
+          "section_type": "order",
+          "score": 0.0,
+          "section_boost": 1.0,
+          "boosted_score": 0.0,
+          "text": "피심인은 향후 동일한 행위를 반복하여서는 아니 된다.",
+          "doc_id": "case_001",
+          "title": "샘플 사건",
+          "source_file": null,
+          "page": null
+        }
+      ]
+    }
+  ]
+}

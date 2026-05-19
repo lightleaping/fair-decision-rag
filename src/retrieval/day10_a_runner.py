@@ -1,12 +1,12 @@
-# src/retrieval/day10_a_runner.py
+﻿# src/retrieval/day10_a_runner.py
 
 import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
-from query_classifier import QueryClassifier
-from section_boost import SectionBooster
-from topk_selector import TopKSelector
+from src.retrieval.query_classifier import QueryClassifier
+from src.retrieval.section_boost import SectionBooster
+from src.retrieval.topk_selector import TopKSelector
 
 
 REQUIRED_RESULT_KEYS = ["chunk_id", "section_type", "score", "text"]
@@ -14,21 +14,21 @@ REQUIRED_RESULT_KEYS = ["chunk_id", "section_type", "score", "text"]
 
 def validate_search_results(search_results: List[Dict[str, Any]]) -> None:
     """
-    BM25/Dense/Hybrid 검색 결과의 기본 형식을 검증한다.
+    BM25/Dense/Hybrid 寃??寃곌낵??湲곕낯 ?뺤떇??寃利앺븳??
     """
 
     if not isinstance(search_results, list):
-        raise TypeError("search_results는 list[dict] 형식이어야 합니다.")
+        raise TypeError("search_results??list[dict] ?뺤떇?댁뼱???⑸땲??")
 
     if len(search_results) < 5:
         raise ValueError(
-            f"검색 후보가 {len(search_results)}개입니다. "
-            "Top-5를 만들기 위해 최소 5개 이상 필요합니다."
+            f"寃???꾨낫媛 {len(search_results)}媛쒖엯?덈떎. "
+            "Top-5瑜?留뚮뱾湲??꾪빐 理쒖냼 5媛??댁긽 ?꾩슂?⑸땲??"
         )
 
     for idx, item in enumerate(search_results):
         if not isinstance(item, dict):
-            raise TypeError(f"{idx}번째 검색 결과가 dict 형식이 아닙니다.")
+            raise TypeError(f"{idx}踰덉㎏ 寃??寃곌낵媛 dict ?뺤떇???꾨떃?덈떎.")
 
         missing_keys = [
             key for key in REQUIRED_RESULT_KEYS
@@ -37,17 +37,17 @@ def validate_search_results(search_results: List[Dict[str, Any]]) -> None:
 
         if missing_keys:
             raise ValueError(
-                f"{idx}번째 검색 결과에 필수 key가 없습니다: {missing_keys}"
+                f"{idx}踰덉㎏ 寃??寃곌낵???꾩닔 key媛 ?놁뒿?덈떎: {missing_keys}"
             )
 
         if not item["chunk_id"]:
-            raise ValueError(f"{idx}번째 검색 결과의 chunk_id가 비어 있습니다.")
+            raise ValueError(f"{idx}踰덉㎏ 寃??寃곌낵??chunk_id媛 鍮꾩뼱 ?덉뒿?덈떎.")
 
         try:
             float(item["score"])
         except ValueError:
             raise ValueError(
-                f"{idx}번째 검색 결과의 score를 float으로 변환할 수 없습니다."
+                f"{idx}踰덉㎏ 寃??寃곌낵??score瑜?float?쇰줈 蹂?섑븷 ???놁뒿?덈떎."
             )
 
 
@@ -57,14 +57,14 @@ def run_day10_a(
     valid_chunk_ids: Optional[Set[str]] = None,
 ) -> Dict[str, Any]:
     """
-    Day 10-A 최종 실행 함수.
+    Day 10-A 理쒖쥌 ?ㅽ뻾 ?⑥닔.
 
-    입력:
-    - query: 사용자 질문
-    - search_results: BM25/Dense/Hybrid 검색 후보 결과
-    - valid_chunk_ids: 공개본 데이터에 존재하는 chunk_id 집합
+    ?낅젰:
+    - query: ?ъ슜??吏덈Ц
+    - search_results: BM25/Dense/Hybrid 寃???꾨낫 寃곌낵
+    - valid_chunk_ids: 怨듦컻蹂??곗씠?곗뿉 議댁옱?섎뒗 chunk_id 吏묓빀
 
-    출력:
+    異쒕젰:
     - query_type
     - matched_keywords
     - top5_chunk_ids
@@ -129,7 +129,7 @@ def run_day10_a(
 
 def save_result_json(result: Dict[str, Any], output_path: str) -> None:
     """
-    결과를 JSON 파일로 저장한다.
+    寃곌낵瑜?JSON ?뚯씪濡???ν븳??
     """
 
     path = Path(output_path)
@@ -145,53 +145,53 @@ if __name__ == "__main__":
             "chunk_id": "case_001_chunk_001",
             "section_type": "fact",
             "score": 8.4,
-            "text": "피심인은 거래상대방에게 특정 조건을 요구하였다.",
+            "text": "?쇱떖?몄? 嫄곕옒?곷?諛⑹뿉寃??뱀젙 議곌굔???붽뎄?섏???",
             "doc_id": "case_001",
-            "title": "샘플 사건"
+            "title": "?섑뵆 ?ш굔"
         },
         {
             "chunk_id": "case_001_chunk_002",
             "section_type": "legal_reasoning",
             "score": 7.9,
-            "text": "이 행위는 거래상 지위를 이용한 불이익 제공행위로 판단된다.",
+            "text": "???됱쐞??嫄곕옒??吏?꾨? ?댁슜??遺덉씠???쒓났?됱쐞濡??먮떒?쒕떎.",
             "doc_id": "case_001",
-            "title": "샘플 사건"
+            "title": "?섑뵆 ?ш굔"
         },
         {
             "chunk_id": "case_001_chunk_003",
             "section_type": "penalty",
             "score": 6.8,
-            "text": "피심인에게 과징금 1억 원을 부과한다.",
+            "text": "?쇱떖?몄뿉寃?怨쇱쭠湲?1???먯쓣 遺怨쇳븳??",
             "doc_id": "case_001",
-            "title": "샘플 사건"
+            "title": "?섑뵆 ?ш굔"
         },
         {
             "chunk_id": "case_001_chunk_004",
             "section_type": "law_article",
             "score": 7.2,
-            "text": "공정거래법 제23조 제1항이 적용된다.",
+            "text": "怨듭젙嫄곕옒踰???3議?????씠 ?곸슜?쒕떎.",
             "doc_id": "case_001",
-            "title": "샘플 사건"
+            "title": "?섑뵆 ?ш굔"
         },
         {
             "chunk_id": "case_001_chunk_005",
             "section_type": "order",
             "score": 6.9,
-            "text": "피심인은 향후 동일한 행위를 반복하여서는 아니 된다.",
+            "text": "?쇱떖?몄? ?ν썑 ?숈씪???됱쐞瑜?諛섎났?섏뿬?쒕뒗 ?꾨땲 ?쒕떎.",
             "doc_id": "case_001",
-            "title": "샘플 사건"
+            "title": "?섑뵆 ?ш굔"
         },
         {
             "chunk_id": "case_001_chunk_006",
             "section_type": "summary",
             "score": 7.0,
-            "text": "이 사건은 거래상 지위 남용행위에 관한 건이다.",
+            "text": "???ш굔? 嫄곕옒??吏???⑥슜?됱쐞??愿??嫄댁씠??",
             "doc_id": "case_001",
-            "title": "샘플 사건"
+            "title": "?섑뵆 ?ш굔"
         },
     ]
 
-    query = "이 사건 과징금은 얼마야?"
+    query = "???ш굔 怨쇱쭠湲덉? ?쇰쭏??"
 
     result = run_day10_a(
         query=query,
@@ -204,4 +204,4 @@ if __name__ == "__main__":
     )
 
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    print("\n저장 완료: outputs/results/day10_a_sample_result.json")
+    print("\n????꾨즺: outputs/results/day10_a_sample_result.json")

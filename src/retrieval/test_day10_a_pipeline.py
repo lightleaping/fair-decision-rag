@@ -1,8 +1,8 @@
 # src/retrieval/test_day10_a_pipeline.py
 
-from query_classifier import QueryClassifier
-from section_boost import SectionBooster
-from topk_selector import TopKSelector
+from src.retrieval.query_classifier import QueryClassifier
+from src.retrieval.section_boost import SectionBooster
+from src.retrieval.topk_selector import TopKSelector
 
 
 def run_day10_a_pipeline(query: str, search_results: list[dict]) -> dict:
