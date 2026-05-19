@@ -7,6 +7,7 @@ from pathlib import Path
 
 from src.retrieval.day10_bm25_pipeline import run_bm25_day10_pipeline
 from src.data.build_chunks_jsonl import build_chunks_jsonl
+from src.retrieval.day11_dense_pipeline import run_dense_day11_pipeline
 
 
 def ensure_chunks_jsonl(
@@ -108,6 +109,14 @@ def main():
         help="BM25 후보 개수",
     )
 
+    parser.add_argument(
+        "--retriever",
+        type=str,
+        default="bm25",
+        choices=["bm25", "dense"],
+        help="검색 방식 선택: bm25 또는 dense",
+    )
+
     args = parser.parse_args()
 
     try:
@@ -116,12 +125,20 @@ def main():
             chunk_jsonl_path=args.chunks,
         )
 
-        result = run_bm25_day10_pipeline(
-            query=args.query,
-            chunk_jsonl_path=args.chunks,
-            output_path=args.output,
-            bm25_top_n=args.top_n,
-        )
+        if args.retriever == "bm25":
+            result = run_bm25_day10_pipeline(
+                query=args.query,
+                chunk_jsonl_path=args.chunks,
+                output_path=args.output,
+                bm25_top_n=args.top_n,
+            )
+        else:
+            result = run_dense_day11_pipeline(
+                query=args.query,
+                chunk_jsonl_path=args.chunks,
+                output_path=args.output,
+                dense_top_n=args.top_n,
+            )
 
         chunk_ids = result["top5_chunk_ids"]
 

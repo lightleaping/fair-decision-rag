@@ -1,0 +1,91 @@
+{
+  "day": "Day 11-A",
+  "retriever": "Dense",
+  "goal": "1GB 이하 경량 임베딩 모델 기반 Dense Top-5 chunk_id 반환",
+  "total_tests": 4,
+  "passed_count": 4,
+  "failed_count": 0,
+  "all_passed": true,
+  "reports": [
+    {
+      "query": "이 사건 과징금은 얼마야?",
+      "query_type": "penalty",
+      "retriever": "dense",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "top5_chunk_ids": [
+        "DOC-2c2f152f-3a5a-4871-88f4-8e16536314a8-CH-029",
+        "DOC-1806825e-e250-4942-97bd-ddd22a5abb0b-CH-382",
+        "DOC-7fe96871-815d-4ae5-87be-1bf0ebff263e-CH-039",
+        "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-149",
+        "DOC-a3ba2505-ad28-405d-9bec-138c47b39fd3-CH-005"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 7.8352,
+      "within_30_seconds": true,
+      "retriever_is_dense": true,
+      "passed": true,
+      "file": "outputs/results/day11_dense_top5.json"
+    },
+    {
+      "query": "왜 위법하다고 판단했어?",
+      "query_type": "legal_reasoning",
+      "retriever": "dense",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "top5_chunk_ids": [
+        "DOC-4063adcd-24dd-4894-8912-5a002f32902b-CH-063",
+        "DOC-ad369b9e-0ecd-45df-bd79-26cc7f9a301a-CH-096",
+        "DOC-937c29c3-3f5a-4572-bbbc-5b4b7cf69f9c-CH-167",
+        "DOC-d1b904ec-2f92-43c8-9cba-4efe4f8eb0e1-CH-041",
+        "DOC-6e04fc79-151a-4ad0-92f5-722ccd772285-CH-296"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 8.4612,
+      "within_30_seconds": true,
+      "retriever_is_dense": true,
+      "passed": true,
+      "file": "outputs/results/day11_dense_reasoning.json"
+    },
+    {
+      "query": "어떤 행위가 문제였어?",
+      "query_type": "fact_pattern",
+      "retriever": "dense",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "top5_chunk_ids": [
+        "DOC-8b1c0d76-019d-434d-aa3b-c3b6290f9097-CH-002",
+        "DOC-6fb56503-5bbb-468a-8101-1d91ba84c50c-CH-002",
+        "DOC-4d1d4feb-15ee-4dc1-89c8-616859431c1c-CH-002",
+        "DOC-9c25181c-5e36-4433-83bd-ce630087faee-CH-002",
+        "DOC-efa68fdf-7bd5-423b-acaa-79588c874273-CH-002"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 9.4638,
+      "within_30_seconds": true,
+      "retriever_is_dense": true,
+      "passed": true,
+      "file": "outputs/results/day11_dense_fact.json"
+    },
+    {
+      "query": "적용 법조항 알려줘",
+      "query_type": "law_article",
+      "retriever": "dense",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "top5_chunk_ids": [
+        "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-112",
+        "DOC-fb1b6ae6-566a-4949-8061-2ffc3988ba56-CH-104",
+        "DOC-330fba51-6d21-4d98-a625-46d615efc885-CH-077",
+        "DOC-bc791a29-0f29-43d1-800f-eadecc569f2b-CH-058",
+        "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-146"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 7.1146,
+      "within_30_seconds": true,
+      "retriever_is_dense": true,
+      "passed": true,
+      "file": "outputs/results/day11_dense_law.json"
+    }
+  ]
+}
