@@ -82,6 +82,6 @@
   "retriever": "dense",
   "dense_top_n": 20,
   "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-  "elapsed_seconds": 7.8352,
+  "elapsed_seconds": 6.6708,
   "within_30_seconds": true
 }
