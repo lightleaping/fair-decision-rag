@@ -36,3 +36,16 @@ assert len(set(chunk_ids)) == 5
 모델 학습 여부 : 학습하지 않음.
 
 chunk_id 처리 원칙 : 공개본 데이터에 존재하는 기존 chunk_id만 사용하며, 새 chunk_id를 생성하지 않는다.
+
+
+## Day 11-A: Dense Retrieval 구현
+
+### 목표
+
+1GB 이하 경량 임베딩 모델을 사용하여 공정거래 의결서 chunk에 대한 Dense Retrieval을 구현한다.
+
+### 사용 모델
+
+```text
+sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+```
