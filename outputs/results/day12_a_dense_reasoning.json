@@ -1,0 +1,88 @@
+{
+  "query": "왜 위법하다고 판단했어?",
+  "query_type": "legal_reasoning",
+  "matched_keywords": [
+    "왜",
+    "판단",
+    "위법"
+  ],
+  "top5_chunk_ids": [
+    "DOC-4063adcd-24dd-4894-8912-5a002f32902b-CH-063",
+    "DOC-ad369b9e-0ecd-45df-bd79-26cc7f9a301a-CH-096",
+    "DOC-937c29c3-3f5a-4572-bbbc-5b4b7cf69f9c-CH-167",
+    "DOC-d1b904ec-2f92-43c8-9cba-4efe4f8eb0e1-CH-041",
+    "DOC-6e04fc79-151a-4ad0-92f5-722ccd772285-CH-296"
+  ],
+  "top5_results": [
+    {
+      "rank": 1,
+      "chunk_id": "DOC-4063adcd-24dd-4894-8912-5a002f32902b-CH-063",
+      "section_type": "default",
+      "score": 0.6765477657318115,
+      "section_boost": 1.0,
+      "boosted_score": 0.6765477657318115,
+      "text": "(단위: 원)",
+      "doc_id": "한국전력공사 발주 디지털변전소운영시스템 구매 입찰 관련 (주)유성계전과 (유)다온시스의 부당한 공동행위에 대한 건",
+      "title": "한국전력공사 발주 디지털변전소운영시스템 구매 입찰 관련 (주)유성계전과 (유)다온시스의 부당한 공동행위에 대한 건",
+      "source_file": "한국전력공사 발주 디지털변전소운영시스템 구매 입찰 관련 (주)유성계전과 (유)다온시스의 부당한 공동행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 2,
+      "chunk_id": "DOC-ad369b9e-0ecd-45df-bd79-26cc7f9a301a-CH-096",
+      "section_type": "default",
+      "score": 0.6765477657318115,
+      "section_boost": 1.0,
+      "boosted_score": 0.6765477657318115,
+      "text": "(단위: 원)",
+      "doc_id": "3개 케이블 트레이 제조업체의 부당한 공동행위에 대한 건",
+      "title": "3개 케이블 트레이 제조업체의 부당한 공동행위에 대한 건",
+      "source_file": "3개 케이블 트레이 제조업체의 부당한 공동행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 3,
+      "chunk_id": "DOC-937c29c3-3f5a-4572-bbbc-5b4b7cf69f9c-CH-167",
+      "section_type": "default",
+      "score": 0.6765477657318115,
+      "section_boost": 1.0,
+      "boosted_score": 0.6765477657318115,
+      "text": "(단위: 원)",
+      "doc_id": "3개 제증명 발급 서비스 공급 사업자의 부당한 공동행위에 대한 건",
+      "title": "3개 제증명 발급 서비스 공급 사업자의 부당한 공동행위에 대한 건",
+      "source_file": "3개 제증명 발급 서비스 공급 사업자의 부당한 공동행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 4,
+      "chunk_id": "DOC-d1b904ec-2f92-43c8-9cba-4efe4f8eb0e1-CH-041",
+      "section_type": "default",
+      "score": 0.6765477657318115,
+      "section_boost": 1.0,
+      "boosted_score": 0.6765477657318115,
+      "text": "(단위: 원)",
+      "doc_id": "(주)코슈코의 방문판매법 위반행위에 대한 건 ",
+      "title": "(주)코슈코의 방문판매법 위반행위에 대한 건 ",
+      "source_file": "(주)코슈코의 방문판매법 위반행위에 대한 건 _hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 5,
+      "chunk_id": "DOC-6e04fc79-151a-4ad0-92f5-722ccd772285-CH-296",
+      "section_type": "default",
+      "score": 0.6765477657318115,
+      "section_boost": 1.0,
+      "boosted_score": 0.6765477657318115,
+      "text": "(단위: 원)",
+      "doc_id": "기업집단 금호아시아나 소속 계열회사들의 특수관계인에 대한 부당이익제공행위 및 부당지원행위에 대한 건",
+      "title": "기업집단 금호아시아나 소속 계열회사들의 특수관계인에 대한 부당이익제공행위 및 부당지원행위에 대한 건",
+      "source_file": "기업집단 금호아시아나 소속 계열회사들의 특수관계인에 대한 부당이익제공행위 및 부당지원행위에 대한 건_hybrid.json",
+      "page": null
+    }
+  ],
+  "retriever": "dense",
+  "dense_top_n": 20,
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "elapsed_seconds": 6.5564,
+  "within_30_seconds": true
+}

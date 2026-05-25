@@ -1,0 +1,88 @@
+{
+  "query": "적용 법조항 알려줘",
+  "query_type": "law_article",
+  "matched_keywords": [
+    "법조항",
+    "조항",
+    "적용 법"
+  ],
+  "top5_chunk_ids": [
+    "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-112",
+    "DOC-fb1b6ae6-566a-4949-8061-2ffc3988ba56-CH-104",
+    "DOC-330fba51-6d21-4d98-a625-46d615efc885-CH-077",
+    "DOC-bc791a29-0f29-43d1-800f-eadecc569f2b-CH-058",
+    "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-146"
+  ],
+  "top5_results": [
+    {
+      "rank": 1,
+      "chunk_id": "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-112",
+      "section_type": "default",
+      "score": 0.9100735187530518,
+      "section_boost": 1.0,
+      "boosted_score": 0.9100735187530518,
+      "text": "- 38 -\n<표 9> 이 사건 제외 광고군별 판매현황 총괄표",
+      "doc_id": "(주)에듀윌의 부당한 표시·광고행위 및 전자상거래소비자보호법 위반 행위에 대한 건",
+      "title": "(주)에듀윌의 부당한 표시·광고행위 및 전자상거래소비자보호법 위반 행위에 대한 건",
+      "source_file": "(주)에듀윌의 부당한 표시·광고행위 및 전자상거래소비자보호법 위반 행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 2,
+      "chunk_id": "DOC-fb1b6ae6-566a-4949-8061-2ffc3988ba56-CH-104",
+      "section_type": "default",
+      "score": 0.9062219262123108,
+      "section_boost": 1.0,
+      "boosted_score": 0.9062219262123108,
+      "text": "- 53) 합의서 내용 중 실행여부",
+      "doc_id": "영주다목적댐 건설공사 입찰 관련 2개 건설사 및 2개 설계용역사의 부당한 공동행위에 대한 건",
+      "title": "영주다목적댐 건설공사 입찰 관련 2개 건설사 및 2개 설계용역사의 부당한 공동행위에 대한 건",
+      "source_file": "영주다목적댐 건설공사 입찰 관련 2개 건설사 및 2개 설계용역사의 부당한 공동행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 3,
+      "chunk_id": "DOC-330fba51-6d21-4d98-a625-46d615efc885-CH-077",
+      "section_type": "default",
+      "score": 0.9057949781417847,
+      "section_boost": 1.0,
+      "boosted_score": 0.9057949781417847,
+      "text": "<표 47> 피심인의 장려금 지급내역",
+      "doc_id": "(주)케이티의 부당한 고객유인행위에 대한 건",
+      "title": "(주)케이티의 부당한 고객유인행위에 대한 건",
+      "source_file": "(주)케이티의 부당한 고객유인행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 4,
+      "chunk_id": "DOC-bc791a29-0f29-43d1-800f-eadecc569f2b-CH-058",
+      "section_type": "default",
+      "score": 0.8841934204101562,
+      "section_boost": 1.0,
+      "boosted_score": 0.8841934204101562,
+      "text": "- <표 24> 2차 수의계약 절차 진행 결과",
+      "doc_id": "강원도개발공사 발주 알펜시아 리조트 매각 입찰 관련 6개 사업자의 부당한 공동행위에 대한 건",
+      "title": "강원도개발공사 발주 알펜시아 리조트 매각 입찰 관련 6개 사업자의 부당한 공동행위에 대한 건",
+      "source_file": "강원도개발공사 발주 알펜시아 리조트 매각 입찰 관련 6개 사업자의 부당한 공동행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 5,
+      "chunk_id": "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-146",
+      "section_type": "default",
+      "score": 0.8836853504180908,
+      "section_boost": 1.0,
+      "boosted_score": 0.8836853504180908,
+      "text": "<표 43> 피심인의 부과과징금\n(단위 : 천원)",
+      "doc_id": "제스프리그룹리미티드 및 제스프리인터내셔날코리아(유)의 시장지배적지위 남용행위에 대한 건",
+      "title": "제스프리그룹리미티드 및 제스프리인터내셔날코리아(유)의 시장지배적지위 남용행위에 대한 건",
+      "source_file": "제스프리그룹리미티드 및 제스프리인터내셔날코리아(유)의 시장지배적지위 남용행위에 대한 건_hybrid.json",
+      "page": null
+    }
+  ],
+  "retriever": "dense",
+  "dense_top_n": 20,
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "elapsed_seconds": 7.3205,
+  "within_30_seconds": true
+}

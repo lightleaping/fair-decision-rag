@@ -1,0 +1,87 @@
+{
+  "query": "적용 법조항 알려줘",
+  "query_type": "law_article",
+  "matched_keywords": [
+    "법조항",
+    "조항",
+    "적용 법"
+  ],
+  "top5_chunk_ids": [
+    "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-011",
+    "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-024",
+    "DOC-6b3d6aa0-571d-462a-bb47-70b1e8d3bc27-CH-129",
+    "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-022",
+    "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-021"
+  ],
+  "top5_results": [
+    {
+      "rank": 1,
+      "chunk_id": "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-011",
+      "section_type": "default",
+      "score": 9.93484514391554,
+      "section_boost": 1.0,
+      "boosted_score": 9.93484514391554,
+      "text": "| 대상 품목 | 가공범위 | 인하단가 |   | 관련 수급사업자 명 |\n| --- | --- | --- | --- | --- |\n|   |   | 변경 월 | 인하율 |   |\n| CROSS HEAD | 황삭 | 4월 | 일괄 8%적용 | 비공개 대상 |\n| PISTON ROD |   | 4월 | 일괄 8%적용 |   |\n| CYL.COVER |   | 4월 | 일괄 8%적용 |   |\n| PISTON CROWN |   | 4월 | 일괄 8%적용 |   |\n| PISTON HEAD |   | 4월 | 일괄 8%적용 |   |\n| HJ BAR |   | 4월 | 일괄 12%적용 |   |\n| CRANK THROW | 기준면 가공 | 3월 | 일괄 8%적용 |   |",
+      "doc_id": "현진소재(주)의 불공정하도급거래행위에 대한 건",
+      "title": "현진소재(주)의 불공정하도급거래행위에 대한 건",
+      "source_file": "현진소재(주)의 불공정하도급거래행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 2,
+      "chunk_id": "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-024",
+      "section_type": "default",
+      "score": 9.410807216070058,
+      "section_boost": 1.0,
+      "boosted_score": 9.410807216070058,
+      "text": "| 대상 품목 | 가공범위 | 단가인하율 | 관련 수급사업자 명 |\n| --- | --- | --- | --- |\n| PISTON HEAD |   | 일괄 15%적용 |   |\n| PISTON ROD |   | 일괄 15%적용 |   |\n| HJ BAR |   | 일괄 15%적용 |   |",
+      "doc_id": "현진소재(주)의 불공정하도급거래행위에 대한 건",
+      "title": "현진소재(주)의 불공정하도급거래행위에 대한 건",
+      "source_file": "현진소재(주)의 불공정하도급거래행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 3,
+      "chunk_id": "DOC-6b3d6aa0-571d-462a-bb47-70b1e8d3bc27-CH-129",
+      "section_type": "default",
+      "score": 9.358237259530169,
+      "section_boost": 1.0,
+      "boosted_score": 9.358237259530169,
+      "text": "| 연번 | 검색어 | 상품 ID | 프로모션 적용 기간 | 적용 전 순위 | 적용 후 순위 |\n| --- | --- | --- | --- | --- | --- |\n| 1 | 118) |   |   |   |   |\n| 2 |   |   |   |   |   |\n| 3 |   |   |   |   |   |\n| 4 |   |   |   |   |   |\n| 5 |   |   |   |   |   |\n| 6 |   |   |   |   |   |\n| 7 |   |   |   |   |   |\n| 8 |   |   |   |   |   |\n| 9 |   |   |   |   |   |\n| 10 |   |   |   |   |   |",
+      "doc_id": "쿠팡(주) 등의 불공정거래행위에 대한 건",
+      "title": "쿠팡(주) 등의 불공정거래행위에 대한 건",
+      "source_file": "쿠팡(주) 등의 불공정거래행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 4,
+      "chunk_id": "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-022",
+      "section_type": "default",
+      "score": 9.332171914618174,
+      "section_boost": 1.0,
+      "boosted_score": 9.332171914618174,
+      "text": "| 대상 품목 | 가공범위 | 단가인하율 | 관련 수급사업자 명 |\n| --- | --- | --- | --- |\n| CROSS HEAD | 황삭 | 일괄 15%적용 | 비공개 대상 |\n| CYL. COVER |   | 일괄 15%적용 |   |\n| PISTON CROWN |   | 일괄 15%적용 |   |",
+      "doc_id": "현진소재(주)의 불공정하도급거래행위에 대한 건",
+      "title": "현진소재(주)의 불공정하도급거래행위에 대한 건",
+      "source_file": "현진소재(주)의 불공정하도급거래행위에 대한 건_hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 5,
+      "chunk_id": "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-021",
+      "section_type": "default",
+      "score": 9.079287993696004,
+      "section_boost": 1.0,
+      "boosted_score": 9.079287993696004,
+      "text": "- ㅇ 단가인하적용 : 대상 품목 일괄적으로 인하 적용, 해당품목 가공업체 단가인하 공통 적용, 2012년 1월부터 적용\n- ㅇ 동의업체발주 : 단가인하 동의업체에 대해서 물량 발주, 단가인하 폭이 더 큰 전략 수주 PJT에 대해서도 협력업체 사전동의, 동의업체에 대해 전략 PJT 물량배분",
+      "doc_id": "현진소재(주)의 불공정하도급거래행위에 대한 건",
+      "title": "현진소재(주)의 불공정하도급거래행위에 대한 건",
+      "source_file": "현진소재(주)의 불공정하도급거래행위에 대한 건_hybrid.json",
+      "page": null
+    }
+  ],
+  "retriever": "bm25",
+  "bm25_top_n": 20,
+  "elapsed_seconds": 7.2317,
+  "within_30_seconds": true
+}

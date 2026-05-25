@@ -1,0 +1,87 @@
+{
+  "query": "어떤 행위가 문제였어?",
+  "query_type": "fact_pattern",
+  "matched_keywords": [
+    "행위",
+    "어떤 행위"
+  ],
+  "top5_chunk_ids": [
+    "DOC-8b1c0d76-019d-434d-aa3b-c3b6290f9097-CH-002",
+    "DOC-6fb56503-5bbb-468a-8101-1d91ba84c50c-CH-002",
+    "DOC-4d1d4feb-15ee-4dc1-89c8-616859431c1c-CH-002",
+    "DOC-9c25181c-5e36-4433-83bd-ce630087faee-CH-002",
+    "DOC-efa68fdf-7bd5-423b-acaa-79588c874273-CH-002"
+  ],
+  "top5_results": [
+    {
+      "rank": 1,
+      "chunk_id": "DOC-8b1c0d76-019d-434d-aa3b-c3b6290f9097-CH-002",
+      "section_type": "default",
+      "score": 0.5379081964492798,
+      "section_boost": 1.0,
+      "boosted_score": 0.5379081964492798,
+      "text": "- 가. 피심인 적격성",
+      "doc_id": "대천서부수산업협동조합의 거래상지위남용행위에 대한 건 ",
+      "title": "대천서부수산업협동조합의 거래상지위남용행위에 대한 건 ",
+      "source_file": "대천서부수산업협동조합의 거래상지위남용행위에 대한 건 _hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 2,
+      "chunk_id": "DOC-6fb56503-5bbb-468a-8101-1d91ba84c50c-CH-002",
+      "section_type": "default",
+      "score": 0.5379081964492798,
+      "section_boost": 1.0,
+      "boosted_score": 0.5379081964492798,
+      "text": "- 가. 피심인 적격성",
+      "doc_id": "여수수산업협동조합의 거래상지위남용행위에 대한 건 ",
+      "title": "여수수산업협동조합의 거래상지위남용행위에 대한 건 ",
+      "source_file": "여수수산업협동조합의 거래상지위남용행위에 대한 건 _hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 3,
+      "chunk_id": "DOC-4d1d4feb-15ee-4dc1-89c8-616859431c1c-CH-002",
+      "section_type": "default",
+      "score": 0.5379081964492798,
+      "section_boost": 1.0,
+      "boosted_score": 0.5379081964492798,
+      "text": "- 가. 피심인 적격성",
+      "doc_id": "한림수산업협동조합의 거래상지위남용행위에 대한 건 ",
+      "title": "한림수산업협동조합의 거래상지위남용행위에 대한 건 ",
+      "source_file": "한림수산업협동조합의 거래상지위남용행위에 대한 건 _hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 4,
+      "chunk_id": "DOC-9c25181c-5e36-4433-83bd-ce630087faee-CH-002",
+      "section_type": "default",
+      "score": 0.5379081964492798,
+      "section_boost": 1.0,
+      "boosted_score": 0.5379081964492798,
+      "text": "- 가. 피심인 적격성",
+      "doc_id": "부산동부수산업협동조합의 거래상지위남용행위에 대한 건 ",
+      "title": "부산동부수산업협동조합의 거래상지위남용행위에 대한 건 ",
+      "source_file": "부산동부수산업협동조합의 거래상지위남용행위에 대한 건 _hybrid.json",
+      "page": null
+    },
+    {
+      "rank": 5,
+      "chunk_id": "DOC-efa68fdf-7bd5-423b-acaa-79588c874273-CH-002",
+      "section_type": "default",
+      "score": 0.5379081964492798,
+      "section_boost": 1.0,
+      "boosted_score": 0.5379081964492798,
+      "text": "- 가. 피심인 적격성",
+      "doc_id": "(주)삼삼드라이브의 거래상지위남용행위에 대한 건",
+      "title": "(주)삼삼드라이브의 거래상지위남용행위에 대한 건",
+      "source_file": "(주)삼삼드라이브의 거래상지위남용행위에 대한 건_hybrid.json",
+      "page": null
+    }
+  ],
+  "retriever": "dense",
+  "dense_top_n": 20,
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "elapsed_seconds": 6.3248,
+  "within_30_seconds": true
+}

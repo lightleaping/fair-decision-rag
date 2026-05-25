@@ -1,0 +1,113 @@
+{
+  "day": "Day 10",
+  "retriever": "BM25",
+  "goal": "30초 이내 중복 없는 Top-5 chunk_id 반환",
+  "total_tests": 6,
+  "passed_count": 6,
+  "failed_count": 0,
+  "all_passed": true,
+  "reports": [
+    {
+      "query": "이 사건 과징금은 얼마야?",
+      "query_type": "penalty",
+      "top5_chunk_ids": [
+        "DOC-91a4dbb5-0171-4f80-b4ab-e22dd5e1440a-CH-012",
+        "DOC-3019c981-9528-43f1-a8d8-25b03c4c81dd-CH-080",
+        "DOC-31239fba-b048-4dde-bbff-b2e3ffdcfc11-CH-051",
+        "DOC-dade1708-3a6a-4a09-96a9-243a418b32a0-CH-038",
+        "DOC-87abe68e-b7e5-4b7c-90f8-3e5685447647-CH-018"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 7.1777,
+      "within_30_seconds": true,
+      "passed": true,
+      "file": "outputs/results/day10_test_penalty.json"
+    },
+    {
+      "query": "왜 위법하다고 판단했어?",
+      "query_type": "legal_reasoning",
+      "top5_chunk_ids": [
+        "DOC-a3a0d237-aa5f-4e70-86af-86a2cb734487-CH-141",
+        "DOC-fb1b6ae6-566a-4949-8061-2ffc3988ba56-CH-043",
+        "DOC-a3a0d237-aa5f-4e70-86af-86a2cb734487-CH-140",
+        "DOC-a3a0d237-aa5f-4e70-86af-86a2cb734487-CH-142",
+        "DOC-a3a0d237-aa5f-4e70-86af-86a2cb734487-CH-186"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 6.9114,
+      "within_30_seconds": true,
+      "passed": true,
+      "file": "outputs/results/day10_test_reasoning.json"
+    },
+    {
+      "query": "어떤 행위가 문제였어?",
+      "query_type": "fact_pattern",
+      "top5_chunk_ids": [
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-119",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-061",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-182",
+        "DOC-96f6397d-9f21-411f-986d-2aca5f7b7a8b-CH-086",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-145"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 6.4942,
+      "within_30_seconds": true,
+      "passed": true,
+      "file": "outputs/results/day10_test_fact.json"
+    },
+    {
+      "query": "적용 법조항 알려줘",
+      "query_type": "law_article",
+      "top5_chunk_ids": [
+        "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-011",
+        "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-024",
+        "DOC-6b3d6aa0-571d-462a-bb47-70b1e8d3bc27-CH-129",
+        "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-022",
+        "DOC-9c14e7a5-4279-47a5-9149-44922b3fee1d-CH-021"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 7.2317,
+      "within_30_seconds": true,
+      "passed": true,
+      "file": "outputs/results/day10_test_law.json"
+    },
+    {
+      "query": "최종 시정명령이 뭐야?",
+      "query_type": "corrective_order",
+      "top5_chunk_ids": [
+        "DOC-f1d4d45b-f0d8-45f3-93a0-90f70b212bd1-CH-177",
+        "DOC-aa633422-703f-435b-ab05-19b279f182a5-CH-296",
+        "DOC-0e005b5a-4a5a-4c31-b180-ae5c8c0b431e-CH-061",
+        "DOC-c18d3a58-4f62-4761-9943-9e2d920b908d-CH-279",
+        "DOC-0f076701-76c9-431c-b2de-04e0378a05b6-CH-279"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 6.6574,
+      "within_30_seconds": true,
+      "passed": true,
+      "file": "outputs/results/day10_test_order.json"
+    },
+    {
+      "query": "전체 내용 요약해줘",
+      "query_type": "summary",
+      "top5_chunk_ids": [
+        "DOC-9a755ec9-428b-4b6d-bb23-5c040232ba9a-CH-030",
+        "DOC-305f4eed-cd18-44c1-a868-f7790bd8e625-CH-066",
+        "DOC-305f4eed-cd18-44c1-a868-f7790bd8e625-CH-068",
+        "DOC-937c29c3-3f5a-4572-bbbc-5b4b7cf69f9c-CH-069",
+        "DOC-b1f92bea-fe09-4da2-9553-0108f72b8613-CH-005"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "elapsed_seconds": 10.2433,
+      "within_30_seconds": true,
+      "passed": true,
+      "file": "outputs/results/day10_test_summary.json"
+    }
+  ]
+}
