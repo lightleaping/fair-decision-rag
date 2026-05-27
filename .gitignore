@@ -1,2 +1,27 @@
 __pycache__/
 *.pyc
+.pytest_cache/
+
+# virtual environments
+.venv/
+venv/
+
+# environment variables
+.env
+.env.*
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# local/full dataset
+data/raw/
+data/chunks.jsonl
+
+# generated indexes
+indexes/
+
+# temporary outputs
+outputs/tmp/
+*.log
