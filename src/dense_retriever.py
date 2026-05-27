@@ -18,13 +18,13 @@ class DenseSearchResult:
 
 class SimpleDenseRetriever:
     """
-    Day 11-A Dense Retrieval 초안.
+    Day 11-A Dense Retrieval baseline.
 
     현재 버전은 외부 API 없이 동작하는 안전한 baseline이다.
     sentence-transformers 모델이 아직 준비되지 않은 상황에서도
-    TF-IDF 유사도 기반으로 Dense Retriever 인터페이스를 먼저 고정한다.
+    TF-IDF/코사인 유사도 기반으로 Dense Retriever 인터페이스를 먼저 고정한다.
 
-    이후 1GB 이하 임베딩 모델이 준비되면 encode 부분만 교체하면 된다.
+    이후 1GB 이하 임베딩 모델이 준비되면 _vectorize 부분을 embedding encode로 교체하면 된다.
     """
 
     def __init__(self, chunk_path: str | Path):
@@ -146,7 +146,10 @@ class SimpleDenseRetriever:
         if len(query_vector) > len(doc_vector):
             query_vector, doc_vector = doc_vector, query_vector
 
-        return sum(value * doc_vector.get(index, 0.0) for index, value in query_vector.items())
+        return sum(
+            value * doc_vector.get(index, 0.0)
+            for index, value in query_vector.items()
+        )
 
     def _tokenize(self, text: str) -> List[str]:
         cleaned = (
@@ -163,6 +166,12 @@ class SimpleDenseRetriever:
             .replace(";", " ")
             .replace("?", " ")
             .replace("!", " ")
+            .replace("·", " ")
+            .replace("ㆍ", " ")
+            .replace("「", " ")
+            .replace("」", " ")
+            .replace("『", " ")
+            .replace("』", " ")
         )
 
         return [token.strip() for token in cleaned.split() if len(token.strip()) >= 2]
@@ -202,13 +211,16 @@ class SimpleDenseRetriever:
         }
 
 
-def dense_search(chunk_path: str | Path, query: str, top_k: int = 5) -> List[DenseSearchResult]:
+def dense_search(
+    chunk_path: str | Path,
+    query: str,
+    top_k: int = 5,
+) -> List[DenseSearchResult]:
     retriever = SimpleDenseRetriever(chunk_path)
     return retriever.search(query=query, top_k=top_k)
 
 
 if __name__ == "__main__":
-    # 실제 chunk 파일 경로에 맞게 수정해서 테스트한다.
     chunk_file = "data/chunks.jsonl"
 
     query = "한국파파존스 사건에서 어떤 법 위반이 있었어?"
@@ -222,5 +234,3 @@ if __name__ == "__main__":
         print("chunk_id:", result.chunk_id)
         print("score:", result.score)
         print("text:", result.text[:300])
-
-    chunk_file = "data/processed/chunks.jsonl"
