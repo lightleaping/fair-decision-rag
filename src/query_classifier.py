@@ -18,48 +18,59 @@ class QueryClassifier:
     """
     공정거래 의결서 질문 유형 분류기.
 
-    목적:
-    - 사용자 질문을 간단한 규칙 기반으로 분류한다.
-    - 질문 유형에 따라 우선 검색할 section_type을 정한다.
-    - Hybrid Retrieval 단계에서 사용할 section boost 값을 제공한다.
+    역할:
+    - 사용자 질문 유형 분류
+    - 우선 검색할 section_type 결정
+    - Hybrid Retrieval에서 사용할 section boost 반환
 
-    외부 API 호출 없음.
-    모델 학습 없음.
-    실행 속도 부담 없음.
+    조건:
+    - 외부 API 호출 없음
+    - 모델 학습 없음
+    - 30초 이내 응답 구조에 부담 없음
     """
 
     VIOLATION_KEYWORDS = [
-        "위반", "법 위반", "위법", "불공정", "담합", "부당", "제한",
-        "거래상지위", "하도급", "가맹", "표시광고", "시장지배", "사업자단체"
+        "위반", "위법", "불공정", "담합", "부당", "제한",
+        "거래상지위", "하도급", "가맹", "표시광고",
+        "시장지배", "사업자단체", "금지행위"
     ]
 
     FACT_KEYWORDS = [
-        "사실관계", "무슨 일", "행위", "어떤 행위", "경위", "배경",
-        "계약", "거래", "요구", "강요", "제공", "판매", "공급"
+        "사실관계", "무슨 일", "행위", "어떤 행위", "경위",
+        "배경", "계약", "거래", "요구", "강요", "제공",
+        "판매", "공급", "피심인"
     ]
 
     LAW_KEYWORDS = [
         "법 조항", "조항", "근거 법", "적용 법", "공정거래법",
-        "하도급법", "가맹사업법", "표시광고법", "시행령"
+        "하도급법", "가맹사업법", "표시광고법", "시행령",
+        "법률", "규정"
     ]
 
     SANCTION_KEYWORDS = [
-        "시정명령", "과징금", "제재", "처분", "고발", "명령",
-        "납부", "금액", "조치", "부과"
+        "시정명령", "과징금", "제재", "처분", "고발",
+        "명령", "납부", "금액", "조치", "부과"
     ]
 
     JUDGMENT_KEYWORDS = [
-        "판단", "이유", "근거", "왜", "인정", "해당하는 이유",
-        "위원회 판단", "판단 근거"
+        "판단", "이유", "근거", "왜", "인정",
+        "해당하는 이유", "위원회 판단", "판단 근거",
+        "위법하다고 본 이유"
     ]
 
     SUMMARY_KEYWORDS = [
-        "요약", "정리", "핵심", "간단히", "전체 내용", "무슨 사건"
+        "요약", "정리", "핵심", "간단히", "전체 내용",
+        "무슨 사건", "설명"
     ]
 
     SECTION_PROFILES = {
         "violation": {
-            "priority_sections": ["legal_judgment", "violation_type", "facts", "order"],
+            "priority_sections": [
+                "legal_judgment",
+                "violation_type",
+                "facts",
+                "order"
+            ],
             "section_boost": {
                 "legal_judgment": 1.30,
                 "violation_type": 1.25,
@@ -68,7 +79,12 @@ class QueryClassifier:
             },
         },
         "facts": {
-            "priority_sections": ["facts", "background", "transaction_structure", "legal_judgment"],
+            "priority_sections": [
+                "facts",
+                "background",
+                "transaction_structure",
+                "legal_judgment"
+            ],
             "section_boost": {
                 "facts": 1.35,
                 "background": 1.20,
@@ -77,7 +93,12 @@ class QueryClassifier:
             },
         },
         "law": {
-            "priority_sections": ["law", "legal_basis", "legal_judgment", "violation_type"],
+            "priority_sections": [
+                "law",
+                "legal_basis",
+                "legal_judgment",
+                "violation_type"
+            ],
             "section_boost": {
                 "law": 1.35,
                 "legal_basis": 1.30,
@@ -86,7 +107,12 @@ class QueryClassifier:
             },
         },
         "sanction": {
-            "priority_sections": ["order", "sanction", "penalty", "conclusion"],
+            "priority_sections": [
+                "order",
+                "sanction",
+                "penalty",
+                "conclusion"
+            ],
             "section_boost": {
                 "order": 1.35,
                 "sanction": 1.30,
@@ -95,7 +121,12 @@ class QueryClassifier:
             },
         },
         "judgment": {
-            "priority_sections": ["legal_judgment", "reasoning", "facts", "law"],
+            "priority_sections": [
+                "legal_judgment",
+                "reasoning",
+                "facts",
+                "law"
+            ],
             "section_boost": {
                 "legal_judgment": 1.35,
                 "reasoning": 1.25,
@@ -104,7 +135,12 @@ class QueryClassifier:
             },
         },
         "summary": {
-            "priority_sections": ["summary", "facts", "legal_judgment", "order"],
+            "priority_sections": [
+                "summary",
+                "facts",
+                "legal_judgment",
+                "order"
+            ],
             "section_boost": {
                 "summary": 1.25,
                 "facts": 1.15,
@@ -113,7 +149,12 @@ class QueryClassifier:
             },
         },
         "general": {
-            "priority_sections": ["facts", "legal_judgment", "law", "order"],
+            "priority_sections": [
+                "facts",
+                "legal_judgment",
+                "law",
+                "order"
+            ],
             "section_boost": {
                 "facts": 1.15,
                 "legal_judgment": 1.15,
@@ -125,10 +166,8 @@ class QueryClassifier:
 
     def classify(self, query: str) -> QueryAnalysis:
         normalized_query = self._normalize(query)
-
         query_type = self._detect_query_type(normalized_query)
         profile = self.SECTION_PROFILES[query_type]
-
         keywords = self._extract_keywords(normalized_query)
 
         return QueryAnalysis(
@@ -157,19 +196,22 @@ class QueryClassifier:
         return best_type
 
     def _extract_keywords(self, query: str) -> List[str]:
-        candidate_words = []
+        cleaned = (
+            query.replace("?", " ")
+            .replace(".", " ")
+            .replace(",", " ")
+            .replace("!", " ")
+        )
 
-        for token in query.replace("?", " ").replace(".", " ").replace(",", " ").split():
-            token = token.strip()
-            if len(token) >= 2:
-                candidate_words.append(token)
+        tokens = [token.strip() for token in cleaned.split() if len(token.strip()) >= 2]
 
         stopwords = {
             "이", "가", "은", "는", "을", "를", "에", "의", "와", "과",
-            "에서", "으로", "인가요", "무엇인가요", "알려줘", "설명해줘"
+            "에서", "으로", "인가요", "무엇인가요", "알려줘", "설명해줘",
+            "해줘", "뭐야", "어떻게", "되었어"
         }
 
-        keywords = [word for word in candidate_words if word not in stopwords]
+        keywords = [token for token in tokens if token not in stopwords]
 
         return keywords[:10]
 
