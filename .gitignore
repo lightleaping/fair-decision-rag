@@ -25,3 +25,7 @@ indexes/
 # temporary outputs
 outputs/tmp/
 *.log
+
+# Temporary comparison folders
+src_before_first_posting/
+external_first_posting/
