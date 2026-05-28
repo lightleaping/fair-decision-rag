@@ -1,0 +1,5 @@
+{"query":"기업들이 가격을 같이 정한 사례가 있나요?","positive_chunk_id":"chunk_00001","question_type":"행위 패턴","section_type":"이유","answer_reference":"가격 결정 합의와 관련된 담합 사례입니다."}
+{"query":"과징금이 부과된 사건은?","positive_chunk_id":"chunk_00002","question_type":"과징금","section_type":"주문/별지","answer_reference":"과징금 부과 내용이 포함된 사건입니다."}
+{"query":"하도급 대금을 지급하지 않은 사례가 있나요?","positive_chunk_id":"chunk_00003","question_type":"위반 유형","section_type":"이유","answer_reference":"하도급 대금 미지급과 관련된 사례입니다."}
+{"query":"입찰담합 사건의 조치는 무엇인가요?","positive_chunk_id":"chunk_00004","question_type":"처분 결과","section_type":"주문","answer_reference":"입찰담합에 대한 시정명령 또는 과징금 조치입니다."}
+{"query":"어떤 법 조항을 위반했나요?","positive_chunk_id":"chunk_00005","question_type":"법 조항","section_type":"이유","answer_reference":"해당 사건에서 위반한 법 조항입니다."}

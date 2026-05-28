@@ -1,0 +1,30 @@
+# Raw and generated data
+data/raw/
+data/chunks.jsonl
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Optional temporary files
+*.log
+*.tmp
+
+# Archives
+*.zip

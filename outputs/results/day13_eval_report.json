@@ -1,0 +1,224 @@
+{
+  "day": 13,
+  "task": "Evaluation report for Day 12 retrieval results",
+  "result_path": "outputs/results/day12_hybrid_top5.json",
+  "qa_path": "data/processed/qa_eval_set.jsonl",
+  "num_queries": 10,
+  "format_passed_count": 10,
+  "format_failed_count": 0,
+  "all_format_passed": true,
+  "exactly_5_count": 10,
+  "no_duplicate_count": 10,
+  "within_30_seconds_count": 10,
+  "avg_elapsed_seconds": 0.0379,
+  "max_elapsed_seconds": 0.0618,
+  "min_elapsed_seconds": 0.0254,
+  "recall_at_5_available": false,
+  "avg_recall_at_5": null,
+  "mrr_available": false,
+  "avg_mrr": null,
+  "gold_query_count": 5,
+  "evaluated_with_gold_count": 0,
+  "reports": [
+    {
+      "query": "과징금은 어떻게 산정되었나요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.0257,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-cae9aec6-533d-4989-a56d-1e9d0bfddbe2-CH-032",
+        "DOC-91a4dbb5-0171-4f80-b4ab-e22dd5e1440a-CH-012",
+        "DOC-2bee6ab8-a235-4ac2-a459-9d155b05fc1b-CH-044",
+        "DOC-91a4dbb5-0171-4f80-b4ab-e22dd5e1440a-CH-013",
+        "DOC-ba3e5c61-f0ef-499e-9120-9741dbcbf87f-CH-035"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "관련매출액은 어떻게 계산되었나요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.0284,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-aa633422-703f-435b-ab05-19b279f182a5-CH-117",
+        "DOC-aa633422-703f-435b-ab05-19b279f182a5-CH-115",
+        "DOC-eaaa7db5-63d0-40a8-87fa-68759eee2fc5-CH-087",
+        "DOC-ebba7c49-d1e6-4c3e-a923-40a98794262a-CH-060",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-091"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "어떤 행위가 문제 되었나요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.0473,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-112e4cdb-c595-4919-933d-2eba19eaee8a-CH-028",
+        "DOC-6b3d6aa0-571d-462a-bb47-70b1e8d3bc27-CH-097",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-119",
+        "DOC-28f54a70-7a9a-44a1-8229-cdb49865cc64-CH-085",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-512"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "위법하다고 판단한 근거는 무엇인가요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.0394,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-305f4eed-cd18-44c1-a868-f7790bd8e625-CH-086",
+        "DOC-305f4eed-cd18-44c1-a868-f7790bd8e625-CH-088",
+        "DOC-305f4eed-cd18-44c1-a868-f7790bd8e625-CH-087",
+        "DOC-305f4eed-cd18-44c1-a868-f7790bd8e625-CH-085",
+        "DOC-305f4eed-cd18-44c1-a868-f7790bd8e625-CH-093"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "적용된 법 조항은 무엇인가요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.0366,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-6b3d6aa0-571d-462a-bb47-70b1e8d3bc27-CH-256",
+        "DOC-07508323-2f03-40db-ad23-306b15193393-CH-012",
+        "DOC-6e04fc79-151a-4ad0-92f5-722ccd772285-CH-266",
+        "DOC-07508323-2f03-40db-ad23-306b15193393-CH-011",
+        "DOC-6e04fc79-151a-4ad0-92f5-722ccd772285-CH-268"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "시정명령의 내용은 무엇인가요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.0254,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-2acbbbd3-ad1b-47ff-bf2c-298e9321578f-CH-028",
+        "DOC-c8c0987a-3bcd-4394-b510-74485ce1bcbf-CH-027",
+        "DOC-c8c0987a-3bcd-4394-b510-74485ce1bcbf-CH-001",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-112",
+        "DOC-76c30a89-c67d-470b-92b7-71594c46a16f-CH-024"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "고발 조치가 있었나요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.03,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-bbe68a6f-78b2-45ea-97af-6a10c0294bd0-CH-029",
+        "DOC-15d3eebd-e973-43f2-a6a2-7af718132a7c-CH-068",
+        "DOC-aa633422-703f-435b-ab05-19b279f182a5-CH-265",
+        "DOC-aa633422-703f-435b-ab05-19b279f182a5-CH-267",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-081"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "입찰담합의 행위 패턴은 무엇인가요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.0376,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-112",
+        "DOC-15d3eebd-e973-43f2-a6a2-7af718132a7c-CH-094",
+        "DOC-27603e76-b98d-4d71-8221-0d774c27fda2-CH-053",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-492",
+        "DOC-ef24de5f-e4aa-4a2f-92b6-e0b2ce431479-CH-053"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "부당한 공동행위가 인정된 이유는 무엇인가요?",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.047,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-112",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-111",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-519",
+        "DOC-76c30a89-c67d-470b-92b7-71594c46a16f-CH-025",
+        "DOC-922b3342-10d0-43ea-9bc0-ddec8751f407-CH-116"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    },
+    {
+      "query": "이 의결서의 핵심 내용을 요약해 주세요.",
+      "retriever": "hybrid_bm25_fallback",
+      "dense_available": false,
+      "elapsed_seconds": 0.0618,
+      "within_30_seconds": true,
+      "top5_chunk_ids": [
+        "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-074",
+        "DOC-5b961eea-b16f-4123-8206-47fab7193508-CH-048",
+        "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-075",
+        "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-077",
+        "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-078"
+      ],
+      "has_exactly_5": true,
+      "has_no_duplicates": true,
+      "gold_chunk_ids": [],
+      "recall_at_5": null,
+      "mrr": null,
+      "format_passed": true
+    }
+  ]
+}
