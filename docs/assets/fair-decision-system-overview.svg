@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img">
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#3561D8"/>
+  </marker>
+</defs>
+<rect width="1200" height="430" rx="24" fill="#F5F7F9"/>
+<text x="48" y="48" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="27" font-weight="800" fill="#151F32">공정거래 의결서 NLP 검색 | System Overview</text>
+<text x="48" y="76" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="15" font-weight="500" fill="#5F6675">긴 공공문서에서 질문과 관련된 근거 구간을 검색하고 chunk_id로 추적</text>
+
+<rect x="48" y="118" width="176" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="48" y="118" width="8" height="126" rx="4" fill="#21AFC4"/>
+<text x="72" y="152" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">1. DOCUMENT</text>
+<text x="72" y="179" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">공개 의결서</text>
+<text x="72" y="201" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Section 구조</text>
+<rect x="252" y="118" width="176" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="252" y="118" width="8" height="126" rx="4" fill="#3561D8"/>
+<text x="276" y="152" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">2. CHUNK</text>
+<text x="276" y="179" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Text Quality</text>
+<text x="276" y="201" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">chunk_id 유지</text>
+<rect x="456" y="118" width="176" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="456" y="118" width="8" height="126" rx="4" fill="#151F32"/>
+<text x="480" y="152" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">3. RETRIEVE</text>
+<text x="480" y="179" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">BM25</text>
+<text x="480" y="201" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Dense / FAISS</text>
+<rect x="660" y="118" width="176" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="660" y="118" width="8" height="126" rx="4" fill="#EAA12B"/>
+<text x="684" y="152" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">4. RERANK</text>
+<text x="684" y="179" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Query Type</text>
+<text x="684" y="201" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Section Boost</text>
+<rect x="864" y="118" width="176" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="864" y="118" width="8" height="126" rx="4" fill="#2FA66A"/>
+<text x="888" y="152" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">5. SELECT</text>
+<text x="888" y="179" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">중복 제거</text>
+<text x="888" y="201" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Top-5</text>
+<rect x="1068" y="118" width="84" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="1068" y="118" width="8" height="126" rx="4" fill="#21AFC4"/>
+<text x="1092" y="152" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">6.</text>
+<text x="1092" y="179" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Evidence</text>
+<text x="1092" y="201" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Trace</text>
+
+<line x1="224" y1="181" x2="252" y2="181" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="428" y1="181" x2="456" y2="181" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="632" y1="181" x2="660" y2="181" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="836" y1="181" x2="864" y2="181" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1040" y1="181" x2="1068" y2="181" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+
+<rect x="130" y="302" width="430" height="82" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<text x="345" y="332" text-anchor="middle" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="17" font-weight="800" fill="#151F32">Query-aware Search</text>
+<text x="345" y="357" text-anchor="middle" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">질문 목적에 맞는 Section의 순위를 보정</text>
+
+<rect x="640" y="302" width="430" height="82" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<text x="855" y="332" text-anchor="middle" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="17" font-weight="800" fill="#151F32">Traceable Output</text>
+<text x="855" y="357" text-anchor="middle" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">새 ID를 만들지 않고 원문 chunk_id를 반환</text>
+</svg>

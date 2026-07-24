@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img">
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,6 L9,3 z" fill="#3561D8"/>
+  </marker>
+</defs>
+<rect width="1200" height="330" rx="24" fill="#F5F7F9"/>
+<text x="48" y="46" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="27" font-weight="800" fill="#151F32">공정거래 의결서 NLP 검색 | Evaluation Flow</text>
+<text x="48" y="73" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="15" font-weight="500" fill="#5F6675">검색 결과의 관련성, Section 적합성, 중복, 추적 가능성을 분리해 검증</text>
+
+<rect x="48" y="105" width="188" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="48" y="105" width="8" height="126" rx="4" fill="#21AFC4"/>
+<text x="72" y="139" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">GOLD QUESTION</text>
+<text x="72" y="166" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">질문</text>
+<text x="72" y="188" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">정답 근거</text>
+<text x="72" y="210" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">정답 Section</text>
+<rect x="274" y="105" width="188" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="274" y="105" width="8" height="126" rx="4" fill="#3561D8"/>
+<text x="298" y="139" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">SEARCH VARIANTS</text>
+<text x="298" y="166" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">BM25</text>
+<text x="298" y="188" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Dense</text>
+<text x="298" y="210" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Hybrid + Boost</text>
+<rect x="500" y="105" width="188" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="500" y="105" width="8" height="126" rx="4" fill="#151F32"/>
+<text x="524" y="139" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">RANK METRICS</text>
+<text x="524" y="166" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Recall@5</text>
+<text x="524" y="188" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">MRR</text>
+<text x="524" y="210" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Section Hit</text>
+<rect x="726" y="105" width="188" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="726" y="105" width="8" height="126" rx="4" fill="#EAA12B"/>
+<text x="750" y="139" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">STRUCTURE</text>
+<text x="750" y="166" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Top-5 Count</text>
+<text x="750" y="188" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Duplicate Rate</text>
+<text x="750" y="210" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Valid chunk_id</text>
+<rect x="952" y="105" width="200" height="126" rx="16" fill="#FFFFFF" stroke="#D9E0E8"/>
+<rect x="952" y="105" width="8" height="126" rx="4" fill="#2FA66A"/>
+<text x="976" y="139" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="16" font-weight="800" fill="#151F32">FAILURE REVIEW</text>
+<text x="976" y="166" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">검색 누락</text>
+<text x="976" y="188" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">Section 불일치</text>
+<text x="976" y="210" text-anchor="start" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="14" font-weight="500" fill="#5F6675">유사 근거 중복</text>
+
+<line x1="236" y1="168" x2="274" y2="168" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="462" y1="168" x2="500" y2="168" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="688" y1="168" x2="726" y2="168" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="914" y1="168" x2="952" y2="168" stroke="#3561D8" stroke-width="3" marker-end="url(#arrow)"/>
+
+<rect x="245" y="264" width="710" height="42" rx="12" fill="#FFFFFF" stroke="#D9E0E8"/>
+<text x="600" y="291" text-anchor="middle" font-family="'Noto Sans CJK KR','Malgun Gothic','Apple SD Gothic Neo',Arial,sans-serif" font-size="15" font-weight="700" fill="#151F32">정량 지표가 없을 때는 수치를 만들지 않고 평가 설계와 검증 범위를 구분</text>
+</svg>
