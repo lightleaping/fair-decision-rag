@@ -245,17 +245,53 @@ Response:
 
 ## Run and Verify
 
+### Included Assets
+
+| Asset | GitHub | Purpose |
+|---|---|---|
+| `data/sample/chunks.jsonl` | 포함 | fresh clone 검색용 경량 의결서 청크 |
+| `indexes/sample/bm25.pkl` | 포함 | sample BM25 인덱스 |
+| `indexes/sample/dense_embeddings.npy` | 포함 | sample Dense 임베딩 |
+| `indexes/sample/dense_chunks.jsonl` | 포함 | sample Dense 메타데이터 |
+| `scripts/download_embedding_model.py` | 포함 | 공개 임베딩 모델 다운로드 및 로컬 저장 |
+| `data/chunks.jsonl` | 제외 | 공정위 공개본 전체 31,877개 청크 |
+| `indexes/` 전체 인덱스 | 제외 | 전체 BM25·Dense 인덱스 |
+| `models/embedding/` | 제외 | 약 480MB 임베딩 모델 파일 |
+
+전체 데이터와 모델을 Git에 직접 저장하지 않아도 실행을 재현할 수 있습니다.
+sample 자산은 저장소에 포함되며, 임베딩 모델은 로컬 준비 명령이나 Docker 빌드
+과정에서 공개 Hugging Face 저장소로부터 한 번 내려받습니다.
+
 ### Prerequisites
 
 - Python 3.11
-- 전체 실행: 공개 의결서 `data/chunks.jsonl`
-- Hybrid 실행: 로컬 임베딩 모델과 생성된 `indexes/`
+- 로컬 실행: PyTorch CPU와 공개 임베딩 모델
+- Docker 실행: Docker Desktop 또는 Docker Engine
 
 저장소에는 즉시 검증할 수 있는 sample 데이터와 대응하는 BM25·Dense 인덱스가
 포함되어 있습니다. 전체 데이터와 전체 인덱스는 용량 때문에 Git 저장 대상에서
 제외되며, 공개 의결서 데이터를 내려받은 뒤 아래 빌드 스크립트로 준비합니다.
 
-### 1. Environment
+### 1. Quick Start with Docker
+
+Docker 빌드 과정에서 PyTorch와 공개 임베딩 모델을 이미지에 포함합니다.
+
+```powershell
+git clone https://github.com/lightleaping/fair-decision-rag.git
+cd fair-decision-rag
+docker compose up --build
+```
+
+서비스가 준비되면:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:8000/health
+```
+
+첫 빌드는 모델 다운로드 때문에 시간이 걸릴 수 있지만 이후 컨테이너 실행에는
+인터넷 연결이 필요하지 않습니다.
+
+### 2. Local Environment
 
 ```powershell
 python -m venv .venv
@@ -270,14 +306,38 @@ PyTorch CPU 패키지가 필요합니다.
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
 
-### 2. Build Indexes
+공개 임베딩 모델을 로컬에 준비합니다.
+
+```powershell
+python .\scripts\download_embedding_model.py
+```
+
+### 3. Sample CLI Query
+
+별도의 데이터·인덱스 생성 없이 저장소에 포함된 sample로 Hybrid Retrieval을
+실행할 수 있습니다.
+
+```powershell
+python .\run.py `
+  --mode hybrid `
+  --chunks data/sample/chunks.jsonl `
+  --embedding-model models/embedding `
+  --dense-index indexes/sample/dense_embeddings.npy `
+  --dense-metadata indexes/sample/dense_chunks.jsonl `
+  --query "과징금 산정 시 고려하는 요소는 무엇인가?"
+```
+
+### 4. Full-data Index Build
+
+공모전 페이지에서 공개 의결서 전체 데이터를 내려받아
+`data/chunks.jsonl`로 준비한 후 실행합니다.
 
 ```powershell
 python .\scripts\build_bm25_index.py
 python .\scripts\build_dense_index.py
 ```
 
-### 3. CLI Query
+전체 데이터 질의:
 
 ```powershell
 python .\run.py `
@@ -285,15 +345,26 @@ python .\run.py `
   --query "시장지배적 지위 남용행위의 판단 기준은 무엇인가?"
 ```
 
-BM25만 확인하려면:
+sample 또는 전체 데이터에서 BM25만 확인하려면 `--mode bm25`를 사용합니다.
 
 ```powershell
 python .\run.py `
   --mode bm25 `
+  --chunks data/sample/chunks.jsonl `
   --query "부당한 공동행위에 대한 시정명령은 무엇인가?"
 ```
 
-### 4. FastAPI
+### 5. Local FastAPI
+
+sample 경로를 환경 변수로 지정합니다.
+
+```powershell
+$env:CHUNKS_PATH="data/sample/chunks.jsonl"
+$env:BM25_INDEX_PATH="indexes/sample/bm25.pkl"
+$env:DENSE_INDEX_PATH="indexes/sample/dense_embeddings.npy"
+$env:DENSE_METADATA_PATH="indexes/sample/dense_chunks.jsonl"
+$env:EMBEDDING_MODEL_PATH="models/embedding"
+```
 
 ```powershell
 python -m uvicorn server:app --host 127.0.0.1 --port 8000
@@ -320,7 +391,7 @@ Invoke-RestMethod `
   -Body $body
 ```
 
-### 5. Docker
+### 6. Docker Details
 
 fresh clone에서는 sample 데이터와 인덱스를 기본으로 사용합니다. Docker 빌드 중
 공개 임베딩 모델을 내려받아 이미지에 저장하므로, 빌드 후 실행에는 인터넷이
@@ -356,7 +427,7 @@ python .\scripts\benchmark_api.py `
   --requests 200
 ```
 
-### 6. Tests
+### 7. Tests
 
 ```powershell
 python -m unittest discover -s tests -v
@@ -374,15 +445,17 @@ fair-decision-rag/
 │  └─ chunks.jsonl           # 전체 공개 청크, Git 제외
 ├─ docs/
 │  └─ assets/                # README 시스템 이미지
-├─ indexes/                  # BM25와 Dense Index, Git 제외
-│  └─ sample/                # fresh clone 실행용 경량 인덱스
-├─ models/                   # 로컬 임베딩 모델, Git 제외
+├─ indexes/
+│  ├─ sample/                # Git 포함: fresh clone 실행용 경량 인덱스
+│  └─ ...                    # Git 제외: 전체 BM25와 Dense 인덱스
+├─ models/                   # Git 제외: 다운로드하는 로컬 임베딩 모델
 ├─ outputs/
 │  └─ results/               # 평가 및 벤치마크 결과
 ├─ scripts/
 │  ├─ build_bm25_index.py
 │  ├─ build_dense_index.py
 │  ├─ build_sample_dataset.py
+│  ├─ download_embedding_model.py
 │  ├─ build_silver_qa.py
 │  ├─ evaluate_pipeline.py
 │  ├─ benchmark_submission.py
