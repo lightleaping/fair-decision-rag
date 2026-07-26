@@ -1,0 +1,9 @@
+.git
+.venv
+.vendor
+__pycache__
+*.pyc
+data/raw
+data/sample
+indexes/sample
+outputs

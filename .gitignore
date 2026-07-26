@@ -10,8 +10,14 @@ __pycache__/
 
 # Virtual environments
 .venv/
+.vendor/
 venv/
 env/
+
+# Generated retrieval indexes
+indexes/
+models/
+*.log
 
 # Environment variables
 .env
@@ -25,6 +31,7 @@ Thumbs.db
 # Optional temporary files
 *.log
 *.tmp
+tmp/
 
 # Archives
 *.zip

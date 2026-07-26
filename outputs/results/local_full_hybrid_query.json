@@ -1,0 +1,44 @@
+{
+  "query": "시장지배적 지위 남용행위의 판단 기준은 무엇인가?",
+  "top5_chunk_ids": [
+    "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-050",
+    "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-051",
+    "DOC-b0964d5f-f36b-4273-b8b2-be7707b4d086-CH-059",
+    "DOC-b0964d5f-f36b-4273-b8b2-be7707b4d086-CH-056",
+    "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-070"
+  ],
+  "answer": "시장지배적지위 남용행위의 세부 유형 및 기준 [DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-050] - 61 법 제3조의2 제1항 제5호는 시장지배적 사업자가 부당하게 경쟁사업자를 배 제하기 위하여 거래하는 행위를 금지하고 있으며 같은 법 시행령 제5조 제5항 제2호 및 「시장지배적지위 남용행위의 심사기준」 Ⅳ. [DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-051] 시장 지배적사업자 해당여부를 판단함에 있어서는 ‘시장지배적지위 남용행위의 심사기준 (공정거래위원회 고시 제2002-6호)’에 의거하여 시장점유율, 진입장벽의 존재여부 및 정도, 경쟁사업자의 상대적 규모, 경쟁사업자간의 공동행위 가능성, 유사품 및 인접시 장의 존재, 시장봉쇄력, 자금력 등을 종합적으로 고려한다. [DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-070]",
+  "answer_type": "grounded_extractive",
+  "evidence_chunk_ids": [
+    "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-050",
+    "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-051",
+    "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-070"
+  ],
+  "evidences": [
+    {
+      "chunk_id": "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-050",
+      "section_type": "legal_reasoning",
+      "text": "시장지배적지위 남용행위의 세부 유형 및 기준"
+    },
+    {
+      "chunk_id": "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-051",
+      "section_type": "legal_reasoning",
+      "text": "- 61 법 제3조의2 제1항 제5호는 시장지배적 사업자가 부당하게 경쟁사업자를 배 제하기 위하여 거래하는 행위를 금지하고 있으며 같은 법 시행령 제5조 제5항 제2호 및 「시장지배적지위 남용행위의 심사기준」 Ⅳ."
+    },
+    {
+      "chunk_id": "DOC-4513c620-f9c3-415d-9956-cb3a3eefdd09-CH-070",
+      "section_type": "legal_reasoning",
+      "text": "시장 지배적사업자 해당여부를 판단함에 있어서는 ‘시장지배적지위 남용행위의 심사기준 (공정거래위원회 고시 제2002-6호)’에 의거하여 시장점유율, 진입장벽의 존재여부 및 정도, 경쟁사업자의 상대적 규모, 경쟁사업자간의 공동행위 가능성, 유사품 및 인접시 장의 존재, 시장봉쇄력, 자금력 등을 종합적으로 고려한다."
+    }
+  ],
+  "trace_rules": {
+    "answer_uses_only_top5_chunks": true,
+    "has_evidence": true,
+    "external_api": false,
+    "generation_mode": "grounded_extractive"
+  },
+  "trace_valid": true,
+  "mode": "hybrid",
+  "dense_available": true,
+  "elapsed_seconds": 115.201
+}

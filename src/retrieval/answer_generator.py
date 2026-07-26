@@ -1,112 +1,77 @@
-# src/retrieval/answer_generator.py
+"""Deterministic grounded answer generation for offline evaluation."""
 
+from __future__ import annotations
+
+import re
 from typing import Any, Dict, List
 
-
-def clean_text(text: str, max_length: int = 500) -> str:
-    if not text:
-        return ""
-
-    text = str(text).replace("\n", " ").strip()
-    text = " ".join(text.split())
-
-    if len(text) > max_length:
-        return text[:max_length].rstrip() + "..."
-
-    return text
+from src.retrieval.bm25_retriever import simple_tokenize
 
 
-def select_evidence_sentences(
-    top5_results: List[Dict[str, Any]],
-    max_evidence_count: int = 3,
-    max_text_length: int = 500,
-) -> List[Dict[str, Any]]:
-    evidences = []
+SENTENCE_SPLIT = re.compile(r"(?<=[.!?。])\s+|\n+")
 
-    for item in top5_results[:max_evidence_count]:
-        chunk_id = item.get("chunk_id")
-        text = item.get("text") or item.get("chunk_text") or item.get("preview") or ""
 
-        if not chunk_id or not text:
-            continue
-
-        evidences.append(
-            {
-                "chunk_id": chunk_id,
-                "section_type": item.get("section_type", "default"),
-                "score": item.get("score"),
-                "text": clean_text(text, max_length=max_text_length),
-            }
-        )
-
-    return evidences
+def clean_text(text: str) -> str:
+    return " ".join(str(text or "").split())
 
 
 def generate_extractive_answer(
     query: str,
     top5_results: List[Dict[str, Any]],
+    *,
+    max_sentences: int = 3,
+    max_chars: int = 900,
 ) -> Dict[str, Any]:
-    """
-    Top-5 chunk 기반 extractive answer 생성기.
-
-    원칙:
-    - 외부 API 호출 없음
-    - 검색된 chunk 외 정보 사용 금지
-    - 답변은 근거 chunk에서 추출한 내용 중심
-    - 명확하지 않으면 보수적으로 답변
-    """
-
-    evidences = select_evidence_sentences(top5_results)
-
-    if not evidences:
+    query_terms = set(simple_tokenize(query))
+    candidates = []
+    for rank, result in enumerate(top5_results, 1):
+        chunk_id = result.get("chunk_id")
+        for sentence_index, sentence in enumerate(
+            SENTENCE_SPLIT.split(result.get("text", ""))
+        ):
+            sentence = clean_text(sentence)
+            if len(sentence) < 15:
+                continue
+            terms = set(simple_tokenize(sentence))
+            overlap = len(query_terms & terms) / max(len(query_terms), 1)
+            score = overlap + 0.15 / rank - 0.00005 * len(sentence)
+            candidates.append(
+                (score, rank, sentence_index, chunk_id, result, sentence)
+            )
+    candidates.sort(reverse=True, key=lambda item: item[0])
+    selected = []
+    seen_sentences = set()
+    total_chars = 0
+    for _, _, _, chunk_id, result, sentence in candidates:
+        signature = sentence[:100]
+        if signature in seen_sentences or total_chars + len(sentence) > max_chars:
+            continue
+        selected.append(
+            {
+                "chunk_id": chunk_id,
+                "section_type": result.get("section_type", "default"),
+                "text": sentence,
+            }
+        )
+        seen_sentences.add(signature)
+        total_chars += len(sentence)
+        if len(selected) == max_sentences:
+            break
+    if not selected:
         return {
-            "answer": "검색된 근거만으로는 명확한 답변을 생성하기 어렵습니다.",
-            "answer_type": "extractive_fallback",
+            "answer": "검색된 공개 의결서 근거만으로는 답변을 확인할 수 없습니다.",
+            "answer_type": "grounded_refusal",
             "evidence_chunk_ids": [],
             "evidences": [],
         }
-
-    evidence_chunk_ids = [
-        evidence["chunk_id"]
-        for evidence in evidences
-    ]
-
-    first_evidence = evidences[0]["text"]
-
-    answer = (
-        "검색된 의결서 근거에 따르면, 다음 내용이 질문과 가장 관련성이 높습니다. "
-        f"{first_evidence} "
-        "다만 이 답변은 검색된 Top-5 chunk에 근거한 요약이며, "
-        "최종 판단은 표시된 근거 chunk를 함께 확인해야 합니다."
+    answer = " ".join(
+        f"{evidence['text']} [{evidence['chunk_id']}]" for evidence in selected
     )
-
     return {
         "answer": answer,
-        "answer_type": "extractive_fallback",
-        "evidence_chunk_ids": evidence_chunk_ids,
-        "evidences": evidences,
+        "answer_type": "grounded_extractive",
+        "evidence_chunk_ids": list(
+            dict.fromkeys(evidence["chunk_id"] for evidence in selected)
+        ),
+        "evidences": selected,
     }
-
-
-if __name__ == "__main__":
-    sample_top5 = [
-        {
-            "chunk_id": "DOC-sample-CH-001",
-            "section_type": "penalty",
-            "score": 1.0,
-            "text": "피심인에게 과징금 1억 원을 부과한다.",
-        },
-        {
-            "chunk_id": "DOC-sample-CH-002",
-            "section_type": "legal_reasoning",
-            "score": 0.8,
-            "text": "해당 행위는 공정거래법 위반으로 판단된다.",
-        },
-    ]
-
-    result = generate_extractive_answer(
-        query="과징금은 얼마인가요?",
-        top5_results=sample_top5,
-    )
-
-    print(result)

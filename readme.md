@@ -1,225 +1,455 @@
-# 공정거래 의결서 기반 Section-aware Hybrid Retrieval RAG
+# 공정거래 의결서 NLP 검색
 
-## 1. 프로젝트 개요
+**Section-aware Hybrid Retrieval, Grounded Answer, Offline FastAPI**
 
-본 프로젝트는 공정거래위원회 공개본 의결서 데이터를 기반으로, 사용자의 자연어 질문에 대해 관련성이 높은 근거 chunk를 검색하고, 검색된 근거를 바탕으로 답변과 evidence trace를 제공하는 Retrieval 기반 질의응답 시스템입니다.
+> 공정거래위원회 공개 의결서에서 질문과 관련된 근거 청크를 검색하고, 순위가 있는
+> Top-5 `chunk_id`와 근거 기반 답변을 반환하는 로컬 RAG 프로젝트입니다.
 
-공정거래 의결서는 사건 개요, 사실관계, 법 위반 판단, 시정명령, 과징금 등 중요한 정보가 긴 문서 안에 분산되어 있습니다. 본 프로젝트는 의결서 데이터를 chunk 단위로 정리하고, 질문 유형과 section_type을 함께 고려하여 관련 근거를 검색하는 것을 목표로 합니다.
+<p>
+  <img src="https://img.shields.io/badge/Python-3.11-3561D8?style=flat-square&logo=python&logoColor=white" alt="Python 3.11">
+  <img src="https://img.shields.io/badge/Retrieval-BM25%20%2B%20Dense-21AFC4?style=flat-square" alt="Hybrid Retrieval">
+  <img src="https://img.shields.io/badge/API-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Docker-Offline-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Offline Docker">
+  <img src="https://img.shields.io/badge/External%20API-None-2FA66A?style=flat-square" alt="No External API">
+</p>
 
-최종 구현 브랜치: `toastcoding-working`
+---
 
-## 2. 완료 조건
+## Why This Project
 
-사용자가 공정거래 의결서 관련 질문을 입력하면, 시스템은 공개본 데이터에 존재하는 중복 없는 관련 `chunk_id` 5개와 해당 근거에 기반한 답변을 반환합니다.
+공정거래 의결서는 사건 개요, 사실관계, 적용 법조, 위법성 판단, 시정명령과 과징금
+산정 근거가 하나의 긴 문서에 분산되어 있습니다. 단순 키워드 검색만으로는 질문의
+의도와 다른 구간이 상위에 노출되거나, 답변이 어떤 원문에 근거했는지 추적하기
+어렵습니다.
 
-본 프로젝트의 구현 조건은 다음과 같습니다.
+이 프로젝트는 다음 문제를 해결하는 데 초점을 맞췄습니다.
 
-* 외부 API를 호출하지 않습니다.
-* 모델 학습은 수행하지 않습니다.
-* Retrieval 및 inference 중심으로 동작합니다.
-* 최종 반환 `chunk_id`는 공개본 데이터에 존재하는 기존 ID를 유지합니다.
-* 한 요청에서 중복 없는 Top-5 `chunk_id`를 반환합니다.
-* 사용자 질문을 영구 저장하지 않습니다.
-* 검색 결과와 답변은 근거 chunk에 기반하여 생성합니다.
+- 법률 용어의 정확한 일치와 의미적으로 유사한 표현을 함께 검색
+- 질문 유형에 따라 `주문`, `법리`, `사실관계`, `과징금` 등의 섹션 우선순위 조정
+- 공정거래위원회가 제공한 원본 `chunk_id`를 유지해 검색 근거 추적
+- 답변에 사용한 근거를 Top-5 검색 결과 안으로 제한
+- 외부 API와 인터넷 연결이 없는 Docker 환경에서 동일하게 실행
 
-## 3. 주요 기능
+이 프로젝트는 공정거래위원회 제2회 「공정거래 데이터」 활용 공모전 Track 2의
+RAG 기반 의결서 질의응답 과제를 목표로 개발했습니다.
 
-* 공정거래 의결서 chunk 데이터 로딩
-* 텍스트 정제 및 전처리
-* `chunk_id` 무결성 검사
-* `section_type` 자동 보정
-* 질문 유형 분류
-* Section-aware score boost
-* BM25 기반 검색
-* Hybrid Retriever interface
-* BM25 fallback mode
-* Top-5 `chunk_id` 선택
-* 중복 chunk 제거
-* Evidence trace 생성
-* Extractive answer fallback
-* 검색 및 검증 결과 JSON 저장
-* 평가 자동화 구조 제공
+[공모전 Track 2 안내](https://www.fairdata.go.kr/aic/contestInfo.do?#tab-track-nav3)
 
-## 4. 검색 파이프라인
+---
 
-전체 검색 흐름은 다음과 같습니다.
+## Project Overview
 
-```text
-사용자 질문 입력
-→ 질문 유형 분류
-→ section 우선순위 결정
-→ BM25 검색
-→ Hybrid Retriever 호출
-→ section_type 기반 score boost
-→ 후보 chunk 정렬
-→ chunk_id 존재 여부 및 중복 검증
-→ Top-5 chunk_id 반환
-→ 근거 기반 답변 생성
-→ Evidence trace 출력
-```
+| 항목 | 내용 |
+|---|---|
+| **개발 기간** | 2026.05–2026.07 |
+| **상태** | 공모전용 모델 구현 및 로컬 검증 완료 |
+| **대상 데이터** | 공정거래위원회 공개 의결서 청크 31,877개 |
+| **목표** | 질문별 관련 근거 Top-5 검색과 근거 기반 답변 생성 |
+| **검색 방식** | BM25 + 다국어 MiniLM Dense Retrieval + Section Boost |
+| **답변 방식** | 검색 청크 안에서 구성하는 보수적 추출형 답변 |
+| **서비스** | FastAPI `GET /health`, `POST /predict` |
+| **실행 환경** | Python 3.11, 오프라인 Docker, CPU |
+| **기술** | Python, NumPy, PyTorch, Transformers, FastAPI, Uvicorn, Docker |
+| **주의** | 법률 자문 또는 법적 판단을 제공하는 시스템이 아님 |
 
-현재 `HybridRetriever`는 BM25 fallback 방식으로 동작합니다. Dense Retriever 확장을 고려한 인터페이스는 포함되어 있으나, 최종 검증 기준에서는 외부 API 호출 없이 로컬 검색 파이프라인을 우선 사용합니다.
+---
 
-## 5. 폴더 구조
+## Problem → Implementation → Result
 
-```text
-project/
-  data/
-    raw/
-    processed/
-    chunks.jsonl
+| Problem | Implementation | Result |
+|---|---|---|
+| 법률 용어와 사건명이 정확히 일치하는 문서를 찾아야 함 | BM25 역색인과 필드 가중치 | 고유명사·법률 표현 중심 검색 |
+| 같은 의미를 다른 표현으로 묻는 질의를 보완해야 함 | 다국어 MiniLM 평균 풀링 Dense Retriever | 의미 유사도 기반 후보 보완 |
+| 질문 목적과 다른 섹션이 상위에 노출됨 | Query Classification + Section Boost | 주문·과징금·법리 등 질문 유형별 순위 보정 |
+| 공식 ID가 아닌 임의 청크를 반환할 위험 | 원본 `chunk_id` 보존과 유효성 검사 | 존재하는 ID만 정확히 5개 반환 |
+| 검색 결과와 답변 근거가 분리될 수 있음 | Extractive Answer + Evidence Trace | 답변 근거를 검색된 Top-5 안으로 제한 |
+| 평가 환경에서 인터넷을 사용할 수 없음 | 모델·데이터·인덱스를 Docker 이미지에 포함 | `network_mode=none`에서 200/200 요청 성공 |
+| 요청마다 인덱스를 다시 읽으면 느림 | FastAPI lifespan에서 모델과 인덱스 1회 로드 | 장기 실행 프로세스에서 반복 추론 |
 
-  docs/
-    day1_pipeline_design.md
-    day2_data_policy.md
-    day3_section_policy.md
-    day4_bm25_policy.md
-    day5_dense_retrieval.md
-    day7_week1_integration.md
-    day8_hybrid_retrieval.md
+---
 
-  outputs/
-    results/
+## System Overview
 
-  scripts/
-    build_chunks_jsonl.py
-
-  src/
-    retrieval/
-      answer_generator.py
-      bm25_retriever.py
-      chunk_validator.py
-      day10_a_runner.py
-      day10_bm25_pipeline.py
-      evaluator.py
-      evidence_trace.py
-      hybrid_retriever.py
-      query_classifier.py
-      score_fusion.py
-      section_boost.py
-      topk_selector.py
-
-    dense_retriever.py
-    hybrid_retriever.py
-    preprocess.py
-    utils.py
-
-  main.py
-  main_hybrid.py
-  main_day12_hybrid.py
-  main_day14_answer_trace.py
-  requirements.txt
-  readme.md
-```
-
-## 6. 데이터 준비
-
-원본 `*_hybrid.json` 파일을 `data/chunks.jsonl` 형식으로 변환합니다.
-
-```bash
-python scripts/build_chunks_jsonl.py
-```
-
-변환된 데이터는 검색 파이프라인의 입력으로 사용됩니다.
-
-## 7. 실행 방법
-
-A 파트 검증 실행:
-
-```bash
-python -m src.retrieval.day10_a_runner
-```
-
-BM25 기반 검색 파이프라인 실행:
-
-```bash
-python main.py
-```
-
-Hybrid 검색 파이프라인 실행:
-
-```bash
-python main_hybrid.py
-```
-
-Day 12 Hybrid 파이프라인 실행:
-
-```bash
-python main_day12_hybrid.py
-```
-
-Day 14 답변 및 Evidence Trace 실행:
-
-```bash
-python main_day14_answer_trace.py
-```
-
-## 8. A 파트 검증 결과
-
-A 파트에서는 질문 유형 분류, section boost, Top-5 chunk_id 반환 조건을 검증했습니다.
-
-검증 명령:
-
-```bash
-python -m src.retrieval.day10_a_runner
-```
-
-검증 예시 질문:
+<img src="./docs/assets/fair-decision-system-overview.png" alt="공정거래 의결서 검색 시스템 구성" width="100%">
 
 ```text
-이 사건 과징금은 얼마야?
+공개 의결서 청크
+├─ BM25 Index
+└─ Dense Embedding Index
+          │
+질문 ── Query Classification
+          │
+          ├─ BM25 Retrieval
+          └─ Dense Retrieval
+                  │
+          Weighted Score Fusion
+                  │
+             Section Boost
+                  │
+      Unique and Valid Top-5
+                  │
+       Grounded Extractive Answer
+                  │
+ FastAPI: id + chunk_ids + answer
 ```
 
-검증 결과:
+### Layer Responsibilities
+
+| Layer | Responsibility |
+|---|---|
+| **Query Classifier** | 질문을 과징금, 법리, 사실관계, 법조문, 시정명령, 요약 등으로 분류 |
+| **BM25 Retriever** | 사건명·기업명·법률 용어의 어휘 일치 기반 후보 검색 |
+| **Dense Retriever** | 다국어 문장 임베딩의 코사인 유사도로 의미 기반 후보 검색 |
+| **Score Fusion** | BM25와 Dense 점수를 정규화하고 가중 결합 |
+| **Section Boost** | 질문 유형과 관련성이 높은 의결서 섹션의 순위 보정 |
+| **Top-5 Validator** | 정확히 5개, 중복 없음, 공개 데이터에 존재하는 ID인지 검증 |
+| **Answer Generator** | 검색된 근거 문장을 조합하고 출처 `chunk_id`를 함께 표시 |
+| **Submission Service** | 모델과 인덱스를 1회 로드하고 공식 HTTP 스키마로 응답 |
+
+---
+
+## Competition Requirement Mapping
+
+공모전 Track 2는 Retrieval 50%와 Generation 50%로 모델을 평가하며, Retrieval에는
+Recall@5와 MRR, Generation에는 BERTScore와 Token F1을 사용합니다. 또한 Top-5
+청크 ID 형식과 응답시간에 강제 규칙을 둡니다.
+
+| Official Requirement | Project Implementation | Local Verification |
+|---|---|---|
+| 의결서 Chunking과 원본 ID 유지 | 제공 청크 31,877개와 원본 `chunk_id` 사용 | **PASS** |
+| 임베딩 생성 | 384차원 다국어 MiniLM Dense Index | **PASS** |
+| Hybrid Retrieval | BM25 + Dense weighted fusion | **PASS** |
+| 근거 기반 생성 | Top-5 범위 안의 추출형 답변과 Evidence Trace | **PASS** |
+| 정확히 5개 `chunk_id` | 응답 직전 길이 검증과 안전 fallback | **PASS** |
+| 중복 ID 금지 | ID 기준 중복 제거 | **PASS** |
+| 공개 데이터에 존재하는 ID | 전체 유효 ID 집합으로 검증 | **PASS** |
+| 배열 순서가 검색 순위 | 최종 점수 내림차순으로 반환 | **PASS** |
+| 문항당 30초 이하 | 오프라인 Docker 200회 최대 13.3913초 | **PASS** |
+| 외부 LLM API 금지 | 네트워크 호출 없는 로컬 추론 | **PASS** |
+| 8B 이하 생성 모델 | 별도 생성 LLM 없이 추출형 생성 | **PASS** |
+| 인터넷 없는 평가 환경 | 모델·인덱스·데이터를 이미지에 포함 | **PASS** |
+| `GET /health` | `{"status":"ok"}` 반환 | **PASS** |
+| `POST /predict` | `id`, `retrieved_chunk_ids`, `answer` 반환 | **PASS** |
+
+> 위 표의 PASS는 공개된 실행 규격에 대한 로컬 검증 결과입니다. 공모전 비공개
+> 평가 데이터의 품질 점수나 심사 결과를 의미하지 않습니다.
+
+---
+
+## Evaluation
+
+### 1. Silver QA Retrieval Evaluation
+
+공개 의결서 메타데이터에서 자동 구성한 500개 silver QA로 측정한 결과입니다.
+정답 라벨이 사람이 검수한 공식 gold set이 아니므로, 모델 간 개발 비교와 회귀
+검증 용도로만 해석해야 합니다.
+
+| Metric | Result |
+|---|---:|
+| Questions | **500** |
+| Recall@5 | **0.9850** |
+| MRR | **0.9810** |
+| Token F1 | **0.0595** |
+| BERTScore | 미산출 |
+| Total Evaluation Time | **613.33 sec** |
+
+결과 파일:
+[`outputs/results/silver_hybrid_eval_500.json`](./outputs/results/silver_hybrid_eval_500.json)
+
+### 2. Offline Docker Stability
+
+전체 데이터, 검색 인덱스와 임베딩 모델을 포함한 이미지에 네트워크와 호스트
+볼륨을 연결하지 않고 HTTP 요청 200개를 순차 전송했습니다.
+
+| Metric | Result |
+|---|---:|
+| Requests | **200** |
+| Passed / Failed | **200 / 0** |
+| Mean Latency | **1.4503 sec** |
+| P95 Latency | **4.2112 sec** |
+| Maximum Latency | **13.3913 sec** |
+| Network | `none` |
+| Host Volume | 사용하지 않음 |
+
+결과 파일:
+[`outputs/results/docker_offline_stability_200.json`](./outputs/results/docker_offline_stability_200.json)
+
+### 3. Result Interpretation
+
+- 자체 silver set에서는 검색 대상 사건을 Top-5 안에 포함시키는 성능이 높았습니다.
+- Token F1은 0.0595로 낮아, 추출형 답변 선택과 문장 압축에는 개선 여지가 큽니다.
+- BERTScore는 선택 의존성과 공식 reference answer 부재로 산출하지 않았습니다.
+- 200회 오프라인 HTTP 검증에서는 형식 오류와 제한시간 초과가 없었습니다.
+- 공식 비공개 평가 점수는 없으며, 위 수치를 공모전 최종 성능으로 일반화할 수 없습니다.
+
+---
+
+## Retrieval and Answer Pipeline
+
+### Query Types
+
+| Query Type | Example Intent | Priority Sections |
+|---|---|---|
+| `penalty` | 과징금 금액과 산정 근거 | `penalty`, `order`, `legal_reasoning` |
+| `legal_reasoning` | 위법성 판단 이유 | `legal_reasoning`, `law_article`, `fact` |
+| `fact_pattern` | 문제된 행위와 사실관계 | `fact`, `legal_reasoning`, `summary` |
+| `law_article` | 적용 법령과 조항 | `law_article`, `legal_reasoning` |
+| `corrective_order` | 시정명령과 처분 내용 | `order`, `conclusion`, `penalty` |
+| `summary` | 사건 개요와 핵심 내용 | `summary`, `fact`, `legal_reasoning` |
+| `general` | 특정 유형에 속하지 않는 질문 | `summary`, `fact`, `legal_reasoning` |
+
+### Ranking
 
 ```text
-query_type: penalty
-matched_keywords: 과징금, 얼마
-top5_chunk_ids: 5개 반환
-중복 chunk_id 없음
-section_boost 적용
-결과 저장: outputs/results/day10_a_sample_result.json
+BM25 candidates
+       +
+Dense candidates
+       ↓
+score normalization
+       ↓
+weighted fusion
+       ↓
+query-aware section boost
+       ↓
+deduplicate → validate → Top-5
 ```
 
-예시 결과에서는 `penalty`, `order`, `legal_reasoning`, `fact`, `law_article` section이 검색 후보로 반환되며, 과징금 질문에 대해 `penalty` section이 가장 높은 boost를 받아 1순위로 선택됩니다.
+### Response Contract
 
-## 9. 역할별 구현 범위
+Request:
 
-### A 파트
+```json
+{
+  "id": "question-001",
+  "question": "과징금 산정 시 고려하는 요소는 무엇인가?"
+}
+```
 
-* 질문 유형 분류
-* section 우선순위 판단
-* section_type 기반 boost 적용
-* Top-5 chunk_id 선택 검증
-* 중복 없는 chunk_id 반환 확인
-* 실행 결과 JSON 저장 확인
+Response:
 
-### B 파트
+```json
+{
+  "id": "question-001",
+  "retrieved_chunk_ids": [
+    "DOC-...-CH-030",
+    "DOC-...-CH-041",
+    "DOC-...-CH-032",
+    "DOC-...-CH-049",
+    "DOC-...-CH-085"
+  ],
+  "answer": "검색된 의결서 근거를 바탕으로 구성한 답변..."
+}
+```
 
-* BM25 검색 파이프라인 구현
-* chunk 데이터 로딩 및 전처리
-* chunk_id 검증 구조 구현
-* Hybrid Retriever interface 구성
-* BM25 fallback mode 구성
-* 평가 자동화 구조 구현
-* 근거 기반 답변 및 evidence trace 구조 구현
+---
 
-## 10. 검증 기준
+## Run and Verify
 
-최종 검색 결과는 다음 조건을 만족해야 합니다.
+### Prerequisites
+
+- Python 3.11
+- 전체 실행: 공개 의결서 `data/chunks.jsonl`
+- Hybrid 실행: 로컬 임베딩 모델과 생성된 `indexes/`
+
+대용량 데이터, 인덱스와 모델은 Git 저장 대상에서 제외되어 있습니다. 공개 의결서
+데이터는 공모전 페이지에서 내려받고 아래 빌드 스크립트로 준비합니다.
+
+### 1. Environment
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r .\requirements.txt
+```
+
+PyTorch CPU 패키지가 필요합니다.
+
+```powershell
+python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+```
+
+### 2. Build Indexes
+
+```powershell
+python .\scripts\build_bm25_index.py
+python .\scripts\build_dense_index.py
+```
+
+### 3. CLI Query
+
+```powershell
+python .\run.py `
+  --mode hybrid `
+  --query "시장지배적 지위 남용행위의 판단 기준은 무엇인가?"
+```
+
+BM25만 확인하려면:
+
+```powershell
+python .\run.py `
+  --mode bm25 `
+  --query "부당한 공동행위에 대한 시정명령은 무엇인가?"
+```
+
+### 4. FastAPI
+
+```powershell
+python -m uvicorn server:app --host 127.0.0.1 --port 8000
+```
+
+Health check:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:8000/health
+```
+
+Prediction:
+
+```powershell
+$body = @{
+  id = "demo-001"
+  question = "과징금 산정 시 고려하는 요소는 무엇인가?"
+} | ConvertTo-Json
+
+Invoke-RestMethod `
+  -Method Post `
+  -Uri http://127.0.0.1:8000/predict `
+  -ContentType "application/json" `
+  -Body $body
+```
+
+### 5. Docker
+
+전체 제출 이미지는 데이터, 인덱스와 모델을 프로젝트 경로에 준비한 후 빌드합니다.
+
+```powershell
+docker build -t rag-submission:latest .
+docker run --rm `
+  --network none `
+  -p 8000:8000 `
+  rag-submission:latest
+```
+
+다른 터미널에서:
+
+```powershell
+python .\scripts\benchmark_api.py `
+  --base-url http://127.0.0.1:8000 `
+  --requests 200
+```
+
+### 6. Tests
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+---
+
+## Project Structure
 
 ```text
-1. chunk_id가 정확히 5개 반환된다.
-2. 반환된 chunk_id에 중복이 없다.
-3. 반환된 chunk_id는 공개본 데이터에 존재하는 기존 ID를 사용한다.
-4. 질문 유형에 따라 section_type boost가 적용된다.
-5. 답변은 검색된 근거 chunk에 기반한다.
-6. 외부 API를 호출하지 않는다.
-7. 모델 학습을 수행하지 않는다.
+fair-decision-rag/
+├─ data/
+│  ├─ processed/             # silver QA와 평가용 데이터
+│  ├─ sample/                # 경량 실행용 청크
+│  └─ chunks.jsonl           # 전체 공개 청크, Git 제외
+├─ docs/
+│  └─ assets/                # README 시스템 이미지
+├─ indexes/                  # BM25와 Dense Index, Git 제외
+├─ models/                   # 로컬 임베딩 모델, Git 제외
+├─ outputs/
+│  └─ results/               # 평가 및 벤치마크 결과
+├─ scripts/
+│  ├─ build_bm25_index.py
+│  ├─ build_dense_index.py
+│  ├─ build_sample_dataset.py
+│  ├─ build_silver_qa.py
+│  ├─ evaluate_pipeline.py
+│  ├─ benchmark_submission.py
+│  └─ benchmark_api.py
+├─ src/
+│  ├─ retrieval/
+│  │  ├─ bm25_retriever.py
+│  │  ├─ dense_retriever.py
+│  │  ├─ hybrid_retriever.py
+│  │  ├─ query_classifier.py
+│  │  ├─ section_boost.py
+│  │  ├─ answer_generator.py
+│  │  ├─ evidence_trace.py
+│  │  └─ evaluator.py
+│  ├─ runtime.py
+│  └─ submission_service.py
+├─ tests/
+│  └─ test_core.py
+├─ Dockerfile
+├─ docker-compose.yml
+├─ run.py
+├─ server.py
+└─ requirements.txt
 ```
 
-## 11. 현재 상태
+---
 
-최종 기준 브랜치: `toastcoding-working`
+## Current Scope and Limitations
 
-현재 브랜치에는 Day 10~15 retrieval pipeline이 포함되어 있으며, A 파트 검증 명령을 통해 질문 유형 분류, section-aware boost, Top-5 chunk_id 반환 조건이 정상 동작함을 확인했습니다.
+### Current Scope
+
+- 공정거래위원회 공개 의결서 청크 31,877개
+- BM25와 다국어 Dense Embedding을 결합한 Hybrid Retrieval
+- 질문 유형 분류와 의결서 Section Boost
+- 원본 ID 기반 중복 없는 Top-5 검증
+- 검색 근거 범위 안의 추출형 답변과 Evidence Trace
+- Python 3.11 FastAPI 서비스
+- 외부 API 없는 오프라인 Docker 실행
+- silver QA 검색 평가와 HTTP 안정성 벤치마크
+
+### Limitations
+
+- 공모전 비공개 gold set의 공식 평가 결과가 없습니다.
+- 500개 QA는 메타데이터에서 자동 생성한 silver label이며 질문 유형이 편중될 수 있습니다.
+- 추출형 답변은 관련 청크를 찾더라도 질문에 맞는 핵심 문장을 충분히 압축하지 못할 수 있습니다.
+- Token F1이 낮고 BERTScore를 산출하지 않아 Generation 품질 검증이 제한적입니다.
+- Cross-encoder re-ranker와 별도 생성 LLM은 포함하지 않았습니다.
+- OCR 오류, 표, 각주와 긴 법률 문장에 검색·답변 오류가 전파될 수 있습니다.
+- 결과는 의결서 탐색 보조 자료이며 법률 자문이나 최종 판단으로 사용할 수 없습니다.
+
+### Possible Improvements
+
+1. 사람이 검수한 다양한 유형의 gold QA 구축
+2. BM25, Dense, Section Boost 각각의 ablation 평가
+3. 경량 cross-encoder re-ranking
+4. 주문·과징금·법리별 answer span selector 개선
+5. 공식 지표와 동일한 BERTScore·Token F1 평가 환경 구성
+6. 사건 단위 다양성과 인접 청크 문맥을 고려한 재정렬
+7. 검색 실패와 근거 부족을 감지하는 abstention 정책
+
+---
+
+## What This Project Demonstrates
+
+- 긴 공공 법률 문서를 검색 가능한 청크와 인덱스로 구성
+- 어휘 검색과 의미 검색을 결합한 Hybrid Retrieval 구현
+- 질문 의도를 의결서 구조에 연결하는 Section-aware ranking 설계
+- 원본 `chunk_id` 무결성과 Top-5 출력 규칙을 코드로 강제
+- 검색 결과와 답변 근거를 연결하는 grounded answer 구조
+- 모델, 데이터와 인덱스를 포함한 오프라인 Docker serving
+- Recall@5, MRR, Token F1과 HTTP latency를 분리해 평가
+- 자체 평가의 한계와 공모전 공식 평가의 차이를 명시
+
+---
+
+## References
+
+- [공정거래위원회 제2회 「공정거래 데이터」 활용 공모전](https://www.fairdata.go.kr/aic/contestInfo.do?#tab-track-nav3)
+- [공정거래위원회 심결·법령 의결서 검색](https://case.ftc.go.kr/)
+- [Sentence Transformers: paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
+
+---
+
+## Contact
+
+- Developer: 김수진
+- GitHub: [lightleaping](https://github.com/lightleaping)
+- Email: workingskyroad@gmail.com
