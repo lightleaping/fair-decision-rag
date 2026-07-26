@@ -531,14 +531,6 @@ fair-decision-rag/
 
 ---
 
-## References
-
-- [공정거래위원회 제2회 「공정거래 데이터」 활용 공모전](https://www.fairdata.go.kr/aic/contestInfo.do?#tab-track-nav3)
-- [공정거래위원회 심결·법령 의결서 검색](https://case.ftc.go.kr/)
-- [Sentence Transformers: paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
-
----
-
 ## Contact
 
 - Developer: 김수진
