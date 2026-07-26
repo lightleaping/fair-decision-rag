@@ -4,6 +4,4 @@
 __pycache__
 *.pyc
 data/raw
-data/sample
-indexes/sample
 outputs

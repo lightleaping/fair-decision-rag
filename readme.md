@@ -251,8 +251,9 @@ Response:
 - 전체 실행: 공개 의결서 `data/chunks.jsonl`
 - Hybrid 실행: 로컬 임베딩 모델과 생성된 `indexes/`
 
-대용량 데이터, 인덱스와 모델은 Git 저장 대상에서 제외되어 있습니다. 공개 의결서
-데이터는 공모전 페이지에서 내려받고 아래 빌드 스크립트로 준비합니다.
+저장소에는 즉시 검증할 수 있는 sample 데이터와 대응하는 BM25·Dense 인덱스가
+포함되어 있습니다. 전체 데이터와 전체 인덱스는 용량 때문에 Git 저장 대상에서
+제외되며, 공개 의결서 데이터를 내려받은 뒤 아래 빌드 스크립트로 준비합니다.
 
 ### 1. Environment
 
@@ -321,15 +322,31 @@ Invoke-RestMethod `
 
 ### 5. Docker
 
-전체 제출 이미지는 데이터, 인덱스와 모델을 프로젝트 경로에 준비한 후 빌드합니다.
+fresh clone에서는 sample 데이터와 인덱스를 기본으로 사용합니다. Docker 빌드 중
+공개 임베딩 모델을 내려받아 이미지에 저장하므로, 빌드 후 실행에는 인터넷이
+필요하지 않습니다.
 
 ```powershell
 docker build -t rag-submission:latest .
 docker run --rm `
-  --network none `
   -p 8000:8000 `
   rag-submission:latest
 ```
+
+또는:
+
+```powershell
+docker compose up --build
+```
+
+인터넷 차단 상태 자체를 검증할 때는 `--network none`으로 실행한 뒤 컨테이너
+내부에서 `/health`와 `/predict`를 호출합니다. `none` 네트워크에서는 호스트 포트
+공개가 되지 않으므로 일반적인 API 사용 시에는 위 명령처럼 포트만 연결합니다.
+
+전체 데이터로 실행하려면 `data/chunks.jsonl`과 `indexes/`를 준비한 뒤 컨테이너의
+`CHUNKS_PATH`, `BM25_INDEX_PATH`, `DENSE_INDEX_PATH`,
+`DENSE_METADATA_PATH`를 전체 파일 경로로 지정합니다. 공모전 제출용 이미지에는
+전체 데이터와 인덱스를 포함해 별도로 빌드했습니다.
 
 다른 터미널에서:
 
@@ -358,6 +375,7 @@ fair-decision-rag/
 ├─ docs/
 │  └─ assets/                # README 시스템 이미지
 ├─ indexes/                  # BM25와 Dense Index, Git 제외
+│  └─ sample/                # fresh clone 실행용 경량 인덱스
 ├─ models/                   # 로컬 임베딩 모델, Git 제외
 ├─ outputs/
 │  └─ results/               # 평가 및 벤치마크 결과

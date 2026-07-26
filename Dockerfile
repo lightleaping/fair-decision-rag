@@ -1,10 +1,7 @@
 FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1 \
-    HF_HUB_OFFLINE=1 \
-    TRANSFORMERS_OFFLINE=1 \
-    EMBEDDING_MODEL_PATH=/app/models/embedding
+    PYTHONUNBUFFERED=1
 
 WORKDIR /app
 COPY requirements.txt .
@@ -12,7 +9,19 @@ RUN pip install --no-cache-dir \
       --index-url https://download.pytorch.org/whl/cpu \
       torch==2.13.0 \
     && pip install --no-cache-dir -r requirements.txt
+
+COPY scripts/download_embedding_model.py scripts/download_embedding_model.py
+RUN python scripts/download_embedding_model.py --output /app/models/embedding
+
 COPY . .
+
+ENV HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1 \
+    EMBEDDING_MODEL_PATH=/app/models/embedding \
+    CHUNKS_PATH=/app/data/sample/chunks.jsonl \
+    BM25_INDEX_PATH=/app/indexes/sample/bm25.pkl \
+    DENSE_INDEX_PATH=/app/indexes/sample/dense_embeddings.npy \
+    DENSE_METADATA_PATH=/app/indexes/sample/dense_chunks.jsonl
 
 EXPOSE 8000
 
