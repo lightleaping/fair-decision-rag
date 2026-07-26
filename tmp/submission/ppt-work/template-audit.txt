@@ -1,0 +1,8 @@
+Source deck: official FairData AI contest presentation outline
+Slides: 2
+Visual system: white background, FTC logo, black text, thin gray rules
+Slide 1: title/team/presenter cover
+Slide 2: section title plus two large text regions and footer logo/page marker
+Typography: preserve imported template typography and geometry
+Insertion contract: duplicate slide 1 for cover and slide 2 for all content slides;
+rewrite only inherited title/body text elements. Preserve logo, rules, and footer.

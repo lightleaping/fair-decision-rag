@@ -1,0 +1,1437 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/tifcth",
+    "id": "tifcth",
+    "slide": 8,
+    "layoutId": "/ppt/slideLayouts/slideLayout13.xml",
+    "layoutName": "내지_1",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Office 테마",
+    "colors": {
+      "accent1": "#4472C4",
+      "accent2": "#ED7D31",
+      "accent3": "#A5A5A5",
+      "accent4": "#FFC000",
+      "accent5": "#5B9BD5",
+      "accent6": "#70AD47",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#44546A",
+      "lt2": "#E7E6E6",
+      "hlink": "#0563C1",
+      "folHlink": "#954F72"
+    },
+    "fontScheme": {
+      "name": "Office 테마",
+      "majorFont": {
+        "latinTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "맑은 고딕"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout13.xml",
+      "name": "내지_1",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout13.xml/50",
+          "id": "50",
+          "name": "Text Box 5",
+          "bbox": [
+            610.23,
+            674.68,
+            45.3,
+            33.56
+          ],
+          "geometry": "rect",
+          "text": "8",
+          "textPreview": "8",
+          "resolvedTextStyle": {
+            "wrap": "none",
+            "autoFit": "resizeShapeToFitText"
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "8",
+              "resolvedTextStyle": {
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "8",
+                  "fontSize": 19.69,
+                  "typeface": "맑은 고딕",
+                  "bold": true
+                }
+              ]
+            }
+          ],
+          "lineWidth": 0
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout13.xml/51",
+          "id": "51",
+          "name": "텍스트 개체 틀 1",
+          "bbox": [
+            42.9,
+            27.36,
+            912.98,
+            26.81
+          ],
+          "geometry": "rect",
+          "text": "1. 소제목 맑은 고딕 18pt Bold",
+          "textPreview": "1. 소제목 맑은 고딕 18pt Bold",
+          "resolvedTextStyle": {
+            "anchor": 3,
+            "verticalAlignment": "bottom",
+            "insets": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "1. 소제목 맑은 고딕 18pt Bold",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "1. "
+                },
+                {
+                  "index": 2,
+                  "text": "소제목 맑은 고딕 "
+                },
+                {
+                  "index": 3,
+                  "text": "18pt Bold"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout13.xml/2",
+          "id": "2",
+          "name": "직사각형 1",
+          "bbox": [
+            24.48,
+            17.13,
+            5.58,
+            46.85
+          ],
+          "geometry": "rect",
+          "resolvedTextStyle": {
+            "anchor": 2,
+            "verticalAlignment": "middle"
+          },
+          "fillColor": {
+            "type": "theme",
+            "value": "bg2",
+            "transform": {
+              "darken": 0.25
+            }
+          },
+          "lineWidth": 0
+        },
+        {
+          "order": 4,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout13.xml/12",
+          "id": "12",
+          "name": "직선 연결선 1",
+          "bbox": [
+            24.48,
+            669.09,
+            1230.74,
+            0
+          ],
+          "geometry": "line",
+          "lineColor": {
+            "type": "theme",
+            "value": "tx1",
+            "transform": {
+              "lighten": 0.5
+            }
+          },
+          "lineWidth": 1
+        },
+        {
+          "order": 5,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout13.xml/13",
+          "id": "13",
+          "name": "직선 연결선 1",
+          "bbox": [
+            24.48,
+            69.89,
+            1230.74,
+            0
+          ],
+          "geometry": "line",
+          "lineColor": {
+            "type": "theme",
+            "value": "tx1",
+            "transform": {
+              "lighten": 0.5
+            }
+          },
+          "lineWidth": 1
+        },
+        {
+          "order": 6,
+          "kind": "shape",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout13.xml/11",
+          "id": "11",
+          "name": "텍스트 개체 틀 5",
+          "bbox": [
+            30.06,
+            77.33,
+            1225.16,
+            56.58
+          ],
+          "geometry": "rect",
+          "text": "마스터 텍스트 스타일 편집",
+          "textPreview": "마스터 텍스트 스타일 편집",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "마스터 텍스트 스타일 편집",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "마스터 텍스트 스타일 편집",
+                  "fontSize": 22.97
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "order": 7,
+          "kind": "image",
+          "scope": "layout",
+          "aid": "template/layout//ppt/slideLayouts/slideLayout13.xml/52",
+          "id": "52",
+          "name": "Picture 2",
+          "bbox": [
+            1089.75,
+            674.5,
+            172.9,
+            37.1
+          ],
+          "contentType": "image/png",
+          "asset": {
+            "assetId": "/ppt/media/image1.png",
+            "contentType": "image/png",
+            "byteLength": 3114
+          },
+          "fillImage": {
+            "assetId": "/ppt/media/image1.png",
+            "contentType": "image/png",
+            "byteLength": 3114
+          }
+        }
+      ]
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "type": "master",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster1.xml/2",
+          "id": "2",
+          "name": "Title Placeholder 1",
+          "bbox": [
+            88,
+            38.33,
+            1104,
+            139.17
+          ],
+          "geometry": "rect",
+          "text": "마스터 제목 스타일 편집",
+          "textPreview": "마스터 제목 스타일 편집",
+          "resolvedTextStyle": {
+            "anchor": 2,
+            "vertical": 1,
+            "verticalAlignment": "middle",
+            "autoFit": "shrinkText",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            }
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "마스터 제목 스타일 편집",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "마스터 제목 스타일 편집"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster1.xml/3",
+          "id": "3",
+          "name": "Text Placeholder 2",
+          "bbox": [
+            88,
+            191.67,
+            1104,
+            456.83
+          ],
+          "geometry": "rect",
+          "text": "마스터 텍스트 스타일을 편집하려면 클릭\n두 번째 수준\n세 번째 수준\n네 번째 수준\n다섯 번째 수준",
+          "textPreview": "마스터 텍스트 스타일을 편집하려면 클릭 | 두 번째 수준 | 세 번째 수준 | 네 번째 수준 | 다섯 번째 수준",
+          "resolvedTextStyle": {
+            "vertical": 1,
+            "autoFit": "shrinkText",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            }
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "마스터 텍스트 스타일을 편집하려면 클릭",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "마스터 텍스트 스타일을 편집하려면 클릭"
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "두 번째 수준",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "두 번째 수준"
+                }
+              ]
+            },
+            {
+              "index": 3,
+              "text": "세 번째 수준",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "세 번째 수준"
+                }
+              ]
+            },
+            {
+              "index": 4,
+              "text": "네 번째 수준",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "네 번째 수준"
+                }
+              ]
+            },
+            {
+              "index": 5,
+              "text": "다섯 번째 수준",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "다섯 번째 수준"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster1.xml/4",
+          "id": "4",
+          "name": "Date Placeholder 3",
+          "bbox": [
+            88,
+            667.33,
+            288,
+            38.33
+          ],
+          "geometry": "rect",
+          "text": "6/1/2026",
+          "textPreview": "6/1/2026",
+          "resolvedTextStyle": {
+            "anchor": 2,
+            "vertical": 1,
+            "verticalAlignment": "middle",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            }
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "6/1/2026",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "6/1/2026"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster1.xml/5",
+          "id": "5",
+          "name": "Footer Placeholder 4",
+          "bbox": [
+            424,
+            667.33,
+            432,
+            38.33
+          ],
+          "geometry": "rect",
+          "resolvedTextStyle": {
+            "anchor": 2,
+            "vertical": 1,
+            "verticalAlignment": "middle",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            }
+          }
+        },
+        {
+          "order": 5,
+          "kind": "shape",
+          "scope": "master",
+          "aid": "template/master//ppt/slideMasters/slideMaster1.xml/6",
+          "id": "6",
+          "name": "Slide Number Placeholder 5",
+          "bbox": [
+            904,
+            667.33,
+            288,
+            38.33
+          ],
+          "geometry": "rect",
+          "text": "‹#›",
+          "textPreview": "‹#›",
+          "resolvedTextStyle": {
+            "anchor": 2,
+            "vertical": 1,
+            "verticalAlignment": "middle",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            }
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "‹#›",
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "‹#›"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lw76xo3m",
+      "id": "2",
+      "name": "텍스트 개체 틀 1",
+      "bbox": [
+        42.9,
+        27.36,
+        912.98,
+        26.81
+      ],
+      "text": "목차",
+      "textPreview": "목차",
+      "resolvedFontSize": 27.32,
+      "resolvedTextStyle": {
+        "anchor": 3,
+        "vertical": 1,
+        "fontSize": 29.53,
+        "typeface": "맑은 고딕",
+        "color": "tx1",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "bottom",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.93,
+        "autoFitLineSpaceReduction": 10000,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "목차"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "목차",
+          "runs": [
+            {
+              "index": 1,
+              "text": "목차"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 228600,
+          "indent": -228600,
+          "lineSpacingPercent": 90000
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w7m9wb65",
+      "id": "25",
+      "name": "내용 개체 틀 3",
+      "bbox": [
+        25.69,
+        85.68,
+        614.31,
+        557.7
+      ],
+      "geometry": "rect",
+      "text": "1. 개요\n          1.1 인공지능 모델기획 분야 및 목적\n          1.2. 배경 및 필요성\n          1.3. 인공지능모델 구축 결과 내용 요약\n\n2. 주요내용\n          2.1. 대상 사용자 유형 및 활용범위\n          2.3. 구축 AI 서비스 모델 구조\n          2.4. AI 서비스 화면 구성\n\n3. 문제정의 및 해결방안\n          3.1. 문제 정의 및 해결 접근방식\n          3.2. 서비스 구현을 위한 모델구조(아키텍처)\n          3.3. 시나리오\n          3.4. 기술 구현 결과\n          3.5. 결과 해석 및 시사점",
+      "textPreview": "1. 개요 |           1.1 인공지능 모델기획 분야 및 목적 |           1.2. 배경 및 필요성 |           1.3. 인공지능모델 구축 결과 내용 요약 |  | 2. 주요내용 |           2.1. 대상 사용...",
+      "resolvedFontSize": 37.33,
+      "resolvedTextStyle": {
+        "vertical": 1,
+        "fontSize": 37.33,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 31,
+        "lines": [
+          {
+            "index": 1,
+            "text": "1. 개요"
+          },
+          {
+            "index": 2,
+            "text": ""
+          },
+          {
+            "index": 3,
+            "text": "          1.1 인공지능 모델기획 분야 및 목적"
+          },
+          {
+            "index": 4,
+            "text": ""
+          },
+          {
+            "index": 5,
+            "text": "          1.2. 배경 및 필요성"
+          },
+          {
+            "index": 6,
+            "text": ""
+          },
+          {
+            "index": 7,
+            "text": "          1.3. 인공지능모델 구축 결과 내용 요약"
+          },
+          {
+            "index": 8,
+            "text": ""
+          },
+          {
+            "index": 9,
+            "text": ""
+          },
+          {
+            "index": 10,
+            "text": ""
+          },
+          {
+            "index": 11,
+            "text": "2. 주요내용"
+          },
+          {
+            "index": 12,
+            "text": ""
+          },
+          {
+            "index": 13,
+            "text": "          2.1. 대상 사용자 유형 및 활용범위"
+          },
+          {
+            "index": 14,
+            "text": ""
+          },
+          {
+            "index": 15,
+            "text": "          2.3. 구축 AI 서비스 모델 구조"
+          },
+          {
+            "index": 16,
+            "text": ""
+          },
+          {
+            "index": 17,
+            "text": "          2.4. AI 서비스 화면 구성"
+          },
+          {
+            "index": 18,
+            "text": ""
+          },
+          {
+            "index": 19,
+            "text": ""
+          },
+          {
+            "index": 20,
+            "text": ""
+          },
+          {
+            "index": 21,
+            "text": "3. 문제정의 및 해결방안"
+          },
+          {
+            "index": 22,
+            "text": ""
+          },
+          {
+            "index": 23,
+            "text": "          3.1. 문제 정의 및 해결 접근방식"
+          },
+          {
+            "index": 24,
+            "text": ""
+          },
+          {
+            "index": 25,
+            "text": "          3.2. 서비스 구현을 위한 모델구조(아키텍처)"
+          },
+          {
+            "index": 26,
+            "text": ""
+          },
+          {
+            "index": 27,
+            "text": "          3.3. 시나리오"
+          },
+          {
+            "index": 28,
+            "text": ""
+          },
+          {
+            "index": 29,
+            "text": "          3.4. 기술 구현 결과"
+          },
+          {
+            "index": 30,
+            "text": ""
+          },
+          {
+            "index": 31,
+            "text": "          3.5. 결과 해석 및 시사점"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1. 개요",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "1. ",
+              "fontSize": 21.33,
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "개요",
+              "fontSize": 21.33,
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 2,
+          "text": "          1.1 인공지능 모델기획 분야 및 목적",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          1.1 ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "인공지능 모델기획 분야 및 목적",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 3,
+          "text": "          1.2. 배경 및 필요성",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          1.2. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "배경 및 필요성",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 4,
+          "text": "          1.3. 인공지능모델 구축 결과 내용 요약",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          1.3. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "인공지능모델 구축 결과 내용 요약",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 6,
+          "text": "2. 주요내용",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "2. ",
+              "fontSize": 21.33,
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "주요내용",
+              "fontSize": 21.33,
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 7,
+          "text": "          2.1. 대상 사용자 유형 및 활용범위",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          2.1. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "대상 사용자 유형 및 활용범위",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 8,
+          "text": "          2.3. 구축 AI 서비스 모델 구조",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          2.3. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "구축 ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 3,
+              "text": "AI ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 4,
+              "text": "서비스 모델 구조",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 9,
+          "text": "          2.4. AI 서비스 화면 구성",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          2.4. AI",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": " 서비스 화면 구성",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 11,
+          "text": "3. 문제정의 및 해결방안",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "3. ",
+              "fontSize": 21.33,
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "문제정의 및 해결방안",
+              "fontSize": 21.33,
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 12,
+          "text": "          3.1. 문제 정의 및 해결 접근방식",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          3.1. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "문제 정의 및 해결 접근방식",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 13,
+          "text": "          3.2. 서비스 구현을 위한 모델구조(아키텍처)",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          3.2. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "서비스 구현을 위한 모델구조",
+              "fontSize": 18.67
+            },
+            {
+              "index": 3,
+              "text": "(",
+              "fontSize": 18.67
+            },
+            {
+              "index": 4,
+              "text": "아키텍처",
+              "fontSize": 18.67
+            },
+            {
+              "index": 5,
+              "text": ")",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 14,
+          "text": "          3.3. 시나리오",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          3.3. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "시나리오",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 15,
+          "text": "          3.4. 기술 구현 결과",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          3.4. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "기술 구현 결과",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 16,
+          "text": "          3.5. 결과 해석 및 시사점",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          3.5. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "결과 해석 및 시사점",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gn698be5",
+      "id": "10",
+      "name": "내용 개체 틀 3",
+      "bbox": [
+        648.72,
+        81.15,
+        614.31,
+        557.7
+      ],
+      "geometry": "rect",
+      "text": "4. 데이터 활용 결과\n          4.1. 기본 방향   \n          4.2. 세부 설계\n          4.3. 데이터 활용결과\n\n5. 기대효과\n         5.1. 수요자 (국민,기업,정부 등)관점 예상 기대효과\n          5.2. 실제 적용결과 자체평가\n\n6. 기타 사항\n         6.1. 구현의 한계와 교훈(Lessoned Learned)\n          6.2. 활용 데이터 및 참고 문헌  출처",
+      "textPreview": "4. 데이터 활용 결과 |           4.1. 기본 방향    |           4.2. 세부 설계 |           4.3. 데이터 활용결과 |  | 5. 기대효과 |          5.1. 수요자 (국민,기업,정부 등)관점 예...",
+      "resolvedFontSize": 37.33,
+      "resolvedTextStyle": {
+        "vertical": 1,
+        "fontSize": 37.33,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 23,
+        "lines": [
+          {
+            "index": 1,
+            "text": "4. 데이터 활용 결과"
+          },
+          {
+            "index": 2,
+            "text": ""
+          },
+          {
+            "index": 3,
+            "text": "          4.1. 기본 방향"
+          },
+          {
+            "index": 4,
+            "text": ""
+          },
+          {
+            "index": 5,
+            "text": "          4.2. 세부 설계"
+          },
+          {
+            "index": 6,
+            "text": ""
+          },
+          {
+            "index": 7,
+            "text": "          4.3. 데이터 활용결과"
+          },
+          {
+            "index": 8,
+            "text": ""
+          },
+          {
+            "index": 9,
+            "text": ""
+          },
+          {
+            "index": 10,
+            "text": ""
+          },
+          {
+            "index": 11,
+            "text": "5. 기대효과"
+          },
+          {
+            "index": 12,
+            "text": ""
+          },
+          {
+            "index": 13,
+            "text": "         5.1. 수요자 (국민,기업,정부 등)관점 예상 기대효과"
+          },
+          {
+            "index": 14,
+            "text": ""
+          },
+          {
+            "index": 15,
+            "text": "          5.2. 실제 적용결과 자체평가"
+          },
+          {
+            "index": 16,
+            "text": ""
+          },
+          {
+            "index": 17,
+            "text": ""
+          },
+          {
+            "index": 18,
+            "text": ""
+          },
+          {
+            "index": 19,
+            "text": "6. 기타 사항"
+          },
+          {
+            "index": 20,
+            "text": ""
+          },
+          {
+            "index": 21,
+            "text": "         6.1. 구현의 한계와 교훈(Lessoned Learned)"
+          },
+          {
+            "index": 22,
+            "text": ""
+          },
+          {
+            "index": 23,
+            "text": "          6.2. 활용 데이터 및 참고 문헌  출처"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "4. 데이터 활용 결과",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "4. ",
+              "fontSize": 21.33,
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "데이터 활용 결과",
+              "fontSize": 21.33,
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 2,
+          "text": "          4.1. 기본 방향   ",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          4.1. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "기본 방향   ",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 3,
+          "text": "          4.2. 세부 설계",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          4.2. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "세부 설계",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 4,
+          "text": "          4.3. 데이터 활용결과",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          4.3",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": ". ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 3,
+              "text": "데이터 ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 4,
+              "text": "활용결과",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 6,
+          "text": "5. 기대효과",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "5. ",
+              "fontSize": 21.33,
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "기대효과",
+              "fontSize": 21.33,
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 7,
+          "text": "         5.1. 수요자 (국민,기업,정부 등)관점 예상 기대효과",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "         5.1. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "수요자 ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 3,
+              "text": "(",
+              "fontSize": 18.67
+            },
+            {
+              "index": 4,
+              "text": "국민",
+              "fontSize": 18.67
+            },
+            {
+              "index": 5,
+              "text": ",",
+              "fontSize": 18.67
+            },
+            {
+              "index": 6,
+              "text": "기업",
+              "fontSize": 18.67
+            },
+            {
+              "index": 7,
+              "text": ",",
+              "fontSize": 18.67
+            },
+            {
+              "index": 8,
+              "text": "정부 등",
+              "fontSize": 18.67
+            },
+            {
+              "index": 9,
+              "text": ")",
+              "fontSize": 18.67
+            },
+            {
+              "index": 10,
+              "text": "관점 예상 기대효과",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 8,
+          "text": "          5.2. 실제 적용결과 자체평가",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          5.2. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "실제 적용결과 자체평가",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 10,
+          "text": "6. 기타 사항",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "6. ",
+              "fontSize": 21.33,
+              "bold": true
+            },
+            {
+              "index": 2,
+              "text": "기타 사항",
+              "fontSize": 21.33,
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 11,
+          "text": "         6.1. 구현의 한계와 교훈(Lessoned Learned)",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "         6.1. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "구현의 한계와 교훈",
+              "fontSize": 18.67
+            },
+            {
+              "index": 3,
+              "text": "(Lessoned Learned)",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        },
+        {
+          "index": 12,
+          "text": "          6.2. 활용 데이터 및 참고 문헌  출처",
+          "lineSpacingPercent": 120000,
+          "runs": [
+            {
+              "index": 1,
+              "text": "          6.2. ",
+              "fontSize": 18.67
+            },
+            {
+              "index": 2,
+              "text": "활용 데이터 및 참고 문헌  출처",
+              "fontSize": 18.67
+            }
+          ],
+          "bulletCharacter": "•",
+          "marginLeft": 228608,
+          "indent": -228608
+        }
+      ]
+    }
+  ],
+  "composeRuns": []
+}

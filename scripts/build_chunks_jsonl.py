@@ -1,131 +1,127 @@
+"""Build the canonical chunk corpus from the contest archive.
+
+The official ``*_hybrid.json`` files already contain the chunk identifiers used
+by the evaluator.  This script preserves them verbatim and can stream directly
+from the ZIP, so the 500 PDFs do not need to be extracted.
+"""
+
+from __future__ import annotations
+
+import argparse
 import json
+import zipfile
 from pathlib import Path
+from typing import Iterable, Iterator, Tuple
 
 
-RAW_CHUNKS_DIR = Path("data/raw")
-OUTPUT_PATH = Path("data/chunks.jsonl")
+DEFAULT_RAW_DIR = Path("data/raw")
+DEFAULT_OUTPUT = Path("data/chunks.jsonl")
 
 
-def normalize_section(section: str | None) -> str:
-    if not section:
+def normalize_section(section: object) -> str:
+    value = str(section or "").strip()
+    compact = value.replace(" ", "")
+    if not compact:
         return "default"
+    if "주문" in compact:
+        return "order"
+    if "이유" in compact or "판단" in compact:
+        return "legal_reasoning"
+    if "과징금" in compact or "과태료" in compact:
+        return "penalty"
+    if "법령" in compact or "법조" in compact:
+        return "law_article"
+    if "사실" in compact or "행위" in compact:
+        return "fact"
+    if "결론" in compact:
+        return "conclusion"
+    return value
 
-    section = str(section).strip()
 
-    mapping = {
-        "주문": "order",
-        "주 문": "order",
-        "이유": "legal_reasoning",
-        "이 유": "legal_reasoning",
-        "별지": "penalty",
-        "결론": "conclusion",
-        "기타": "default",
-    }
+def iter_sources(raw_dir: Path) -> Iterator[Tuple[str, bytes]]:
+    archives = sorted(raw_dir.glob("*.zip"))
+    if archives:
+        for archive in archives:
+            with zipfile.ZipFile(archive) as bundle:
+                for name in sorted(bundle.namelist()):
+                    if name.endswith("_hybrid.json"):
+                        yield name, bundle.read(name)
+        return
 
-    return mapping.get(section, section)
+    for path in sorted(raw_dir.glob("*_hybrid.json")):
+        yield path.name, path.read_bytes()
 
 
-def extract_text(item: dict) -> str:
-    return (
-        item.get("text")
-        or item.get("chunk_text")
-        or item.get("page_content")
-        or item.get("content")
-        or ""
+def iter_chunks(raw_dir: Path) -> Iterable[dict]:
+    seen: set[str] = set()
+    for source_name, payload in iter_sources(raw_dir):
+        data = json.loads(payload.decode("utf-8-sig"))
+        if not isinstance(data, list):
+            continue
+        for item in data:
+            metadata = item.get("metadata") or {}
+            chunk_id = item.get("chunk_id") or metadata.get("chunk_id")
+            text = (
+                item.get("text")
+                or item.get("chunk_text")
+                or item.get("page_content")
+                or item.get("content")
+                or ""
+            )
+            if not chunk_id or not str(text).strip() or chunk_id in seen:
+                continue
+            seen.add(str(chunk_id))
+            doc_id = str(chunk_id).split("-CH-", 1)[0]
+            raw_section = (
+                item.get("section_type")
+                or metadata.get("section")
+                or metadata.get("Header")
+            )
+            yield {
+                "chunk_id": str(chunk_id),
+                "doc_id": doc_id,
+                "section_type": normalize_section(raw_section),
+                "section": raw_section or "default",
+                "text": str(text).strip(),
+                "title": metadata.get("title")
+                or metadata.get("case_name")
+                or source_name.removesuffix("_hybrid.json"),
+                "source_file": source_name,
+                "page": item.get("page")
+                or metadata.get("page")
+                or metadata.get("page_number"),
+            }
+
+
+def build_chunks_jsonl(raw_dir: Path, output: Path) -> dict:
+    if not raw_dir.exists():
+        raise FileNotFoundError(f"원본 데이터 폴더가 없습니다: {raw_dir}")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    count = 0
+    document_ids: set[str] = set()
+    with output.open("w", encoding="utf-8", newline="\n") as stream:
+        for chunk in iter_chunks(raw_dir):
+            stream.write(json.dumps(chunk, ensure_ascii=False) + "\n")
+            count += 1
+            document_ids.add(chunk["doc_id"])
+    if not count:
+        raise ValueError(f"공식 청크를 찾지 못했습니다: {raw_dir}")
+    return {"documents": len(document_ids), "chunks": count, "output": str(output)}
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--raw-dir", type=Path, default=DEFAULT_RAW_DIR)
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    args = parser.parse_args()
+    print(
+        json.dumps(
+            build_chunks_jsonl(args.raw_dir, args.output),
+            ensure_ascii=False,
+            indent=2,
+        )
     )
 
 
-def build_chunks_jsonl():
-    if not RAW_CHUNKS_DIR.exists():
-        raise FileNotFoundError(f"원본 chunk 폴더가 없습니다: {RAW_CHUNKS_DIR}")
-
-    target_files = sorted(RAW_CHUNKS_DIR.glob("*_hybrid.json"))
-
-    if not target_files:
-        raise FileNotFoundError(f"*_hybrid.json 파일이 없습니다: {RAW_CHUNKS_DIR}")
-
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-
-    total_chunks = 0
-    skipped_chunks = 0
-    seen_chunk_ids = set()
-
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as out:
-        for file_path in target_files:
-            with open(file_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-
-            if not isinstance(data, list):
-                print(f"[SKIP FILE] list 형식이 아님: {file_path.name}")
-                continue
-
-            for item in data:
-                metadata = item.get("metadata") or {}
-
-                chunk_id = (
-                    item.get("chunk_id")
-                    or metadata.get("chunk_id")
-                )
-
-                text = extract_text(item).strip()
-
-                if not chunk_id or not text:
-                    skipped_chunks += 1
-                    continue
-
-                if chunk_id in seen_chunk_ids:
-                    skipped_chunks += 1
-                    continue
-
-                seen_chunk_ids.add(chunk_id)
-
-                if "-CH-" in chunk_id:
-                    doc_id = chunk_id.split("-CH-")[0]
-                else:
-                    doc_id = (
-                        item.get("doc_id")
-                        or item.get("document_id")
-                        or metadata.get("doc_id")
-                        or metadata.get("document_id")
-                    )
-
-                raw_section = (
-                    item.get("section_type")
-                    or metadata.get("section")
-                    or metadata.get("Header")
-                )
-
-                section_type = normalize_section(raw_section)
-
-                output_item = {
-                    "chunk_id": chunk_id,
-                    "section_type": section_type,
-                    "text": text,
-                    "doc_id": doc_id,
-                    "title": (
-                        item.get("title")
-                        or metadata.get("title")
-                        or metadata.get("case_name")
-                        or file_path.stem
-                    ),
-                    "source_file": file_path.name,
-                    "page": (
-                        item.get("page")
-                        or metadata.get("page")
-                        or metadata.get("page_number")
-                    ),
-                }
-
-                out.write(json.dumps(output_item, ensure_ascii=False) + "\n")
-                total_chunks += 1
-
-    print("=== chunks.jsonl 생성 완료 ===")
-    print(f"입력 파일 수: {len(target_files)}")
-    print(f"저장 경로: {OUTPUT_PATH}")
-    print(f"저장 chunk 수: {total_chunks}")
-    print(f"스킵 chunk 수: {skipped_chunks}")
-    print(f"중복 제거 후 chunk_id 수: {len(seen_chunk_ids)}")
-
-
 if __name__ == "__main__":
-    build_chunks_jsonl()
+    main()

@@ -1,0 +1,7 @@
+Official contest conditions and API schema:
+https://www.fairdata.go.kr/aic/contestInfo.do#tab-track-nav3
+Official model submission guide downloaded from:
+https://www.fairdata.go.kr/aic/dupa/h/aicDownloadFormFile.do
+Project evidence:
+outputs/results/silver_hybrid_eval_500.json
+outputs/results/docker_offline_stability_200.json

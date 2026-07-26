@@ -1,0 +1,3 @@
+Slides 3-9 reuse the official two-column outline slide because the supplied
+official deck contains no additional content layouts. Text is shortened to fit
+the inherited regions; no new visual primitives are added.

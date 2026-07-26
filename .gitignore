@@ -10,8 +10,14 @@ __pycache__/
 
 # Virtual environments
 .venv/
+.vendor/
 venv/
 env/
+
+# Generated retrieval indexes
+indexes/
+models/
+*.log
 
 # Environment variables
 .env

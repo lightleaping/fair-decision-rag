@@ -1,0 +1,103 @@
+{
+  "outputSlides": [
+    {
+      "outputSlide": 1,
+      "sourceSlide": 1,
+      "narrativeRole": "opening thesis",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/ts7md4r2"},
+        {"action": "rewrite", "sourceElementId": "sh/sryl4zqx"}
+      ]
+    },
+    {
+      "outputSlide": 2,
+      "sourceSlide": 2,
+      "narrativeRole": "presentation roadmap",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/9072xkry"},
+        {"action": "rewrite", "sourceElementId": "sh/gbmxszmt"},
+        {"action": "rewrite", "sourceElementId": "sh/ove9o7yd"}
+      ]
+    },
+    {
+      "outputSlide": 3,
+      "sourceSlide": 2,
+      "narrativeRole": "problem and audience",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/9072xkry"},
+        {"action": "rewrite", "sourceElementId": "sh/gbmxszmt"},
+        {"action": "rewrite", "sourceElementId": "sh/ove9o7yd"}
+      ]
+    },
+    {
+      "outputSlide": 4,
+      "sourceSlide": 2,
+      "narrativeRole": "system architecture",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/9072xkry"},
+        {"action": "rewrite", "sourceElementId": "sh/gbmxszmt"},
+        {"action": "rewrite", "sourceElementId": "sh/ove9o7yd"}
+      ]
+    },
+    {
+      "outputSlide": 5,
+      "sourceSlide": 2,
+      "narrativeRole": "retrieval strategy",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/9072xkry"},
+        {"action": "rewrite", "sourceElementId": "sh/gbmxszmt"},
+        {"action": "rewrite", "sourceElementId": "sh/ove9o7yd"}
+      ]
+    },
+    {
+      "outputSlide": 6,
+      "sourceSlide": 2,
+      "narrativeRole": "grounded generation and API",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/9072xkry"},
+        {"action": "rewrite", "sourceElementId": "sh/gbmxszmt"},
+        {"action": "rewrite", "sourceElementId": "sh/ove9o7yd"}
+      ]
+    },
+    {
+      "outputSlide": 7,
+      "sourceSlide": 2,
+      "narrativeRole": "evaluation evidence",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/9072xkry"},
+        {"action": "rewrite", "sourceElementId": "sh/gbmxszmt"},
+        {"action": "rewrite", "sourceElementId": "sh/ove9o7yd"}
+      ]
+    },
+    {
+      "outputSlide": 8,
+      "sourceSlide": 2,
+      "narrativeRole": "compliance evidence",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/9072xkry"},
+        {"action": "rewrite", "sourceElementId": "sh/gbmxszmt"},
+        {"action": "rewrite", "sourceElementId": "sh/ove9o7yd"}
+      ]
+    },
+    {
+      "outputSlide": 9,
+      "sourceSlide": 2,
+      "narrativeRole": "impact and close",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "sourceElementId": "sh/9072xkry"},
+        {"action": "rewrite", "sourceElementId": "sh/gbmxszmt"},
+        {"action": "rewrite", "sourceElementId": "sh/ove9o7yd"}
+      ]
+    }
+  ],
+  "omittedSourceSlides": []
+}

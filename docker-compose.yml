@@ -1,0 +1,7 @@
+services:
+  fair-decision-rag:
+    build: .
+    network_mode: none
+    volumes:
+      - ${CHUNKS_SOURCE:-./data/sample/chunks.jsonl}:/app/data/chunks.jsonl:ro
+      - ${INDEXES_SOURCE:-./indexes/sample}:/app/indexes:ro

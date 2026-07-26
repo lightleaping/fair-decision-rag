@@ -1,0 +1,179 @@
+{
+  "num_queries": 10,
+  "avg_recall_at_5": 1.0,
+  "avg_mrr": 1.0,
+  "avg_token_f1": 0.034162452301743224,
+  "bertscore": null,
+  "bertscore_note": "선택 의존성 및 reference answer가 있을 때 별도 산출",
+  "reports": [
+    {
+      "query": "(주)아이티비엠지의 불공정하도급거래행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.015037593984962407,
+      "top5_chunk_ids": [
+        "DOC-00127391-dc0d-438a-9241-6534b7353c45-CH-003",
+        "DOC-00127391-dc0d-438a-9241-6534b7353c45-CH-001",
+        "DOC-00127391-dc0d-438a-9241-6534b7353c45-CH-002",
+        "DOC-b88a604e-a1e4-423d-bf15-d10122d3b0a9-CH-002",
+        "DOC-45caf8a8-6b9e-45ae-8361-7f6ec4d10bda-CH-002"
+      ],
+      "gold_chunk_ids": [
+        "DOC-00127391-dc0d-438a-9241-6534b7353c45-CH-001",
+        "DOC-00127391-dc0d-438a-9241-6534b7353c45-CH-002",
+        "DOC-00127391-dc0d-438a-9241-6534b7353c45-CH-003"
+      ]
+    },
+    {
+      "query": "한국파파존스(주)의 가맹사업법 위반행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.011363636363636362,
+      "top5_chunk_ids": [
+        "DOC-015d56a2-a384-405e-924d-db0383605b63-CH-001",
+        "DOC-67bb00d1-4458-4610-b895-53858b08069c-CH-001",
+        "DOC-0f26778f-2eca-4e84-b29a-525d8fed8756-CH-001",
+        "DOC-1724cfe0-d711-494b-9ec4-6ffb20f9b338-CH-001",
+        "DOC-7c5d5efe-36d9-46c9-9eed-30fb54ccc56c-CH-002"
+      ],
+      "gold_chunk_ids": [
+        "DOC-015d56a2-a384-405e-924d-db0383605b63-CH-001"
+      ]
+    },
+    {
+      "query": "롯데피에스넷(주)의 부당지원행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.0,
+      "top5_chunk_ids": [
+        "DOC-01a418bf-449e-4bd0-ac33-791f57291814-CH-001",
+        "DOC-01a418bf-449e-4bd0-ac33-791f57291814-CH-034",
+        "DOC-01a418bf-449e-4bd0-ac33-791f57291814-CH-021",
+        "DOC-01a418bf-449e-4bd0-ac33-791f57291814-CH-053",
+        "DOC-01a418bf-449e-4bd0-ac33-791f57291814-CH-045"
+      ],
+      "gold_chunk_ids": [
+        "DOC-01a418bf-449e-4bd0-ac33-791f57291814-CH-001"
+      ]
+    },
+    {
+      "query": "에스케이텔레콤(주)의 거래강제행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.009345794392523364,
+      "top5_chunk_ids": [
+        "DOC-01d9fb4b-93df-4a3e-b294-fa4971befd72-CH-001",
+        "DOC-1d189620-d5ae-43dd-bdba-60e3a660d6b8-CH-001",
+        "DOC-45819273-71c6-4eb1-9b2e-203b1b4e0d82-CH-001",
+        "DOC-a3a0d237-aa5f-4e70-86af-86a2cb734487-CH-001",
+        "DOC-0b22896f-c425-4349-8c61-a4299a8385a4-CH-001"
+      ],
+      "gold_chunk_ids": [
+        "DOC-01d9fb4b-93df-4a3e-b294-fa4971befd72-CH-001"
+      ]
+    },
+    {
+      "query": "(주)케이비국민카드 등 7개사 발주 금융카드 구매입찰 관련 6개 사업자의 부당한 공동행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.0,
+      "top5_chunk_ids": [
+        "DOC-02ac6249-979f-4d9e-9721-f6862c9de74d-CH-001",
+        "DOC-02ac6249-979f-4d9e-9721-f6862c9de74d-CH-015",
+        "DOC-02ac6249-979f-4d9e-9721-f6862c9de74d-CH-044",
+        "DOC-02ac6249-979f-4d9e-9721-f6862c9de74d-CH-036",
+        "DOC-02ac6249-979f-4d9e-9721-f6862c9de74d-CH-058"
+      ],
+      "gold_chunk_ids": [
+        "DOC-02ac6249-979f-4d9e-9721-f6862c9de74d-CH-001"
+      ]
+    },
+    {
+      "query": "두산인프라코어(주)의 손자회사 행위제한규정 위반행위에 대한 건  사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.013422818791946308,
+      "top5_chunk_ids": [
+        "DOC-0364b4a8-315b-45f7-bb8d-a5df3751f290-CH-001",
+        "DOC-55494927-5408-40a1-a394-8dedfe712e38-CH-001",
+        "DOC-28b1f575-ae62-4779-b5f3-342dc173720d-CH-001",
+        "DOC-448874a1-b521-4110-a910-35bc3b054bb4-CH-001",
+        "DOC-121feecd-8e7b-4eee-88f5-e5ae652eaa04-CH-001"
+      ],
+      "gold_chunk_ids": [
+        "DOC-0364b4a8-315b-45f7-bb8d-a5df3751f290-CH-001"
+      ]
+    },
+    {
+      "query": "덕소고등학교 교복 구매 입찰 관련 8개 사업자의 부당한 공동행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.2517482517482518,
+      "top5_chunk_ids": [
+        "DOC-039ce8a0-d39e-45a3-8be4-69a9a43af48a-CH-001",
+        "DOC-210e4508-b0e9-4cfa-8821-b1d3bece2ffd-CH-001",
+        "DOC-2d30ab6b-6993-423a-9ddd-251eda31e7a0-CH-001",
+        "DOC-e7876a89-62ad-44e2-a3fc-a39e1730f21d-CH-001",
+        "DOC-cd52c06d-10b0-4c37-a16c-03c5029e930d-CH-001"
+      ],
+      "gold_chunk_ids": [
+        "DOC-039ce8a0-d39e-45a3-8be4-69a9a43af48a-CH-001"
+      ]
+    },
+    {
+      "query": "한국전력공사 등 발주 맨홀뚜껑 구매입찰 관련 5개 사업자의 부당한 공동행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.01234567901234568,
+      "top5_chunk_ids": [
+        "DOC-03c450df-5d5b-442e-b51f-6b434f22f85e-CH-001",
+        "DOC-03c450df-5d5b-442e-b51f-6b434f22f85e-CH-021",
+        "DOC-03c450df-5d5b-442e-b51f-6b434f22f85e-CH-032",
+        "DOC-03c450df-5d5b-442e-b51f-6b434f22f85e-CH-034",
+        "DOC-03c450df-5d5b-442e-b51f-6b434f22f85e-CH-011"
+      ],
+      "gold_chunk_ids": [
+        "DOC-03c450df-5d5b-442e-b51f-6b434f22f85e-CH-001"
+      ]
+    },
+    {
+      "query": "네츄럴코어(주)의 부당한 표시광고행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.018604651162790697,
+      "top5_chunk_ids": [
+        "DOC-04a3e046-2910-400c-8658-798d36da2fc1-CH-001",
+        "DOC-8acc39e7-0de8-4a28-8ccc-3cb9d82e9100-CH-001",
+        "DOC-70094018-86f3-4915-aac5-d8bc29f14693-CH-001",
+        "DOC-86601d8b-45e1-4dc6-8be7-018bea5296c0-CH-002",
+        "DOC-b5076ff2-9231-47cb-948f-cbc6d35b8629-CH-001"
+      ],
+      "gold_chunk_ids": [
+        "DOC-04a3e046-2910-400c-8658-798d36da2fc1-CH-001"
+      ]
+    },
+    {
+      "query": "(주)유웨이어플라이의 부당한 고객유인행위에 대한 건 사건에서 공정거래위원회가 내린 주문은 무엇인가요?",
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "token_f1": 0.00975609756097561,
+      "top5_chunk_ids": [
+        "DOC-04b33a20-2524-439f-ae65-8c608e5c1f0c-CH-001",
+        "DOC-04b33a20-2524-439f-ae65-8c608e5c1f0c-CH-002",
+        "DOC-41788c3f-c285-4ff7-b47c-af13e33ea040-CH-001",
+        "DOC-41788c3f-c285-4ff7-b47c-af13e33ea040-CH-002",
+        "DOC-04b33a20-2524-439f-ae65-8c608e5c1f0c-CH-016"
+      ],
+      "gold_chunk_ids": [
+        "DOC-04b33a20-2524-439f-ae65-8c608e5c1f0c-CH-001",
+        "DOC-04b33a20-2524-439f-ae65-8c608e5c1f0c-CH-002"
+      ]
+    }
+  ],
+  "mode": "hybrid",
+  "qa_path": "data/processed/silver_qa_eval.jsonl",
+  "qa_quality": [
+    "silver"
+  ],
+  "elapsed_seconds": 105.7726
+}
