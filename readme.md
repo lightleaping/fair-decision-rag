@@ -635,6 +635,6 @@ fair-decision-rag/
 
 ## Contact
 
-- Developer: 김수진
+- **Team Lead:** 김수진
 - GitHub: [lightleaping](https://github.com/lightleaping)
 - Email: workingskyroad@gmail.com
